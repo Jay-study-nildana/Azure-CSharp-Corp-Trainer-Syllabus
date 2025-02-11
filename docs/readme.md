@@ -8,7 +8,7 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
 
 ## Table of Contents
 
-1. [Fundamentals of JS Frameworks](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/readme.md)
+1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
     1. ReactJS        
     1. VueJS        
@@ -17,12 +17,12 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. TypeScript and it's Benefits
     1. TypeScript
     1. Project Demos
-        1. [photo-gallery-rjs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-rjs)
-        1. [photo-gallery-vjs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-vjs)
-        1. [photo-gallery-ajs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-ajs/)
-        1. [Without TypeScript - WithoutTS](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/TypeScriptDemo/WithoutTS)
-        1. [With TypeScript - WithTS](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/TypeScriptDemo/WithTS/)
-1. Angular
+        1. [photo-gallery-rjs](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/photo-gallery-rjs)
+        1. [photo-gallery-vjs](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/photo-gallery-vjs)
+        1. [photo-gallery-ajs](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/photo-gallery-ajs)
+        1. [Without TypeScript - WithoutTS](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/TypeScriptDemo/WithoutTS)
+        1. [With TypeScript - WithTS](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/TypeScriptDemo/WithTS)
+1. [Angular](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Angular/readme.md)
     1. Setting up Angular environment
     2. Angular architecture
     3. Components
@@ -47,7 +47,7 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     22. Project-Blog - TODO
         1. Project-Blog-BackEnd-DotNet
         1. Project-Blog-FrontEnd-Angular
-1. .NET Core Fundamentals
+1. [.NET Core Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetFundamentals/readme.md)
     1. Overview of .NET Core
     1. Setting up .NET Core Projects
     1. Console Applications
@@ -58,7 +58,7 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. Projects - TODO
         1. Link All The Existing Projects
         1. Don't need new ones.
-1. .Net Core Web 
+1. [.Net Core Web](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetCoreWeb/readme.md) 
     1. Overview of .NET Core Web
     1. Basics of application architecture - MVC
     1. Basics of application architecture - Microservices
@@ -69,23 +69,25 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. Projects - TODO
         1. Link All The Existing Projects
         1. Don't need new ones.
-1. Blazor
+1. [Blazor](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Blazor/readme.md)
     1. Overview of Blazor
     1. Blazor components and routing
     1. Building interactive web UIs (Demo)
     1. Integrating Blazor with .NET Core (Demo)
-1. Dapper
+1. [Dapper](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Dapper/readme.md)
     1. Overview of Dapper
     1. Querying databases with DAPPER
     1. Performance considerations with DAPPER
-    1. Dapper Demo - DapperHW
-1. ADO.Net with LINQ
+    1. Project Demos
+        1. [DapperHW](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Dapper/DapperHW)
+1. [ADO.Net with LINQ](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/ADONET/readme.md)
     1. Overview of ADO.Net
     1. Using LINQ with ADO.Net
     1. Data access techniques with ADO.Net
     1. Comparing ADO.Net with Entity Framework
-    1. ADO.NET LINQ Demo - ADOLINQHWb
-1. ASP.Net MVC & Web API
+    1. Project Demos
+        1. [ADOLINQHWb](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/ADONET/ADOLINQHWb)
+1. [ASP.Net MVC & Web API](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/MVCWEBAPI/readme.md)
     1. Overview of ASP.Net MVC
     1. Building MVC applications
     1. Introduction to ASP.Net Web API
