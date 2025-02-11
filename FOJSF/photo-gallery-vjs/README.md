@@ -1,6 +1,9 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.1
+# Photo Gallery with VueJS
 
-Hello and welcome to my corporate training Syllabus. 
+A quick demo that shows a gallery with vue js.
+
+1. npm install
+1. npm run serve
 
 # book a session with me
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include TypeScript library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.7.3/typescript.min.js"></script>
+    <script>
+        window.ts = ts;
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            fetch('script.ts')
+                .then(response => response.text())
+                .then(tsCode => {
+                    const jsCode = window.ts.transpile(tsCode);
+                    const script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.text = jsCode;
+                    document.body.appendChild(script);
+                });
+        });
+    </script>
+</head>
+<body>
+    <h1>Bubble Sort Visualization</h1>
+    <div id="array-container"></div>
+    <button onclick="generateArray()">Generate New Array</button>
+    <button onclick="bubbleSort()">Sort Array</button>
+</body>
+</html>

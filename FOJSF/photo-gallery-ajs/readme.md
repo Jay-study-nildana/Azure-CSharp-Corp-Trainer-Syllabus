@@ -1,6 +1,16 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.1
+# # Photo Gallery with Angular JS
 
-Hello and welcome to my corporate training Syllabus. 
+A quick demo that shows a gallery with angular JS
+
+1. npm install
+1. ng serve
+
+note: if you get any errors related to npm install, use npm install --force. 
+
+# additional notes
+
+1. Code borrowed from the official angular course on YouTube from the Angular people. Playlist available here : https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF
+1. SVG generator used for logo.svg : https://app.haikei.app/
 
 # book a session with me
 

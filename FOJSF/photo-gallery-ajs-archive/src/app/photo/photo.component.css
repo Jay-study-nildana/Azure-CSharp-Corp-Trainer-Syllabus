@@ -1,0 +1,10 @@
+.photo {
+    border: 2px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .photo img {
+    max-width: 100%;
+    height: auto;
+  }

@@ -1,6 +1,11 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.1
+# Photo Gallery with Angular JS
 
-Hello and welcome to my corporate training Syllabus. 
+A quick demo that shows a gallery with angular js.
+
+1. npm install
+1. ng serve
+
+TODO: This does not work as of now. needs fixing. 
 
 # book a session with me
 
