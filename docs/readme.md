@@ -8,7 +8,7 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
 
 ## Table of Contents
 
-1. [Fundamentals of JS Frameworks](../FOJSF/readme.md)
+1. [Fundamentals of JS Frameworks](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/readme.md)
     1. Overview
     1. ReactJS        
     1. VueJS        
@@ -17,11 +17,11 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. TypeScript and it's Benefits
     1. TypeScript
     1. Project Demos
-        1. [photo-gallery-rjs](../FOJSF/photo-gallery-rjs)
-        1. [photo-gallery-vjs](../FOJSF/photo-gallery-vjs)
-        1. [photo-gallery-ajs](../FOJSF/photo-gallery-ajs/)
-        1. [Without TypeScript - WithoutTS](../FOJSF/TypeScriptDemo/WithoutTS)
-        1. [With TypeScript - WithTS](../FOJSF/TypeScriptDemo/WithTS/)
+        1. [photo-gallery-rjs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-rjs)
+        1. [photo-gallery-vjs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-vjs)
+        1. [photo-gallery-ajs](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/photo-gallery-ajs/)
+        1. [Without TypeScript - WithoutTS](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/TypeScriptDemo/WithoutTS)
+        1. [With TypeScript - WithTS](/Azure-CSharp-Corp-Trainer-Syllabus/FOJSF/TypeScriptDemo/WithTS/)
 1. Angular
     1. Setting up Angular environment
     2. Angular architecture
