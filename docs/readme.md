@@ -47,6 +47,45 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     22. Project-Blog - TODO
         1. Project-Blog-BackEnd-DotNet
         1. Project-Blog-FrontEnd-Angular
+1. C Sharp Fundamentals
+    1. FreeCode Camp Foundational C# with Microsoft
+        1. [First Code using C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-one---first-code-using-c)
+        1. [Simple C# Console](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-two---simple-c-console)
+        1. [Logic C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-three---logic-c)
+        1. [Variable Data C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-four---variable-data-c)
+        1. [Methods C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-five---methods-c)
+        1. [Debug C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-six---debug-c)
+        1. [Foundational C# with Microsoft Certification](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#foundational-c-with-microsoft-certification)
+    1. [SOLID Principles](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/SOLIDPrinciples/SOLID-principles-harrymt-modified)
+    1. Logging
+        1. [LoggingWithEFCoreSQLite](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/LoggingWithEFCoreSQLite)
+        1. [SerilogSQLite](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/SerilogSQLite)
+    1. [More C# Fundamentals](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/B)
+        1. Creating Hello World Console Application
+        1. System.Console
+        1. Variables
+        1. Primitive C # Types (Data Types) 
+        1. Operators in C #
+        1. Branching
+        1. Loops
+        1. Object Oriented Programming
+        1. Fields, Properties and Indexers 
+        1. Methods or Functions 
+        1. Type Conversion
+        1. Constructors
+        1. Inheritance
+        1. Abstraction and Interfaces 
+        1. Generics
+        1. Garbage Collection 
+        1. Delegates and Events 
+        1. Arrays
+        1. Collections
+        1. LINQ
+        1. Strings
+        1. DateTime
+        1. Math (Class that helps with Math Operations) 
+        1. Regular Expressions 
+        1. Files and Folders 
 1. [.NET Core Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetFundamentals/readme.md)
     1. Overview of .NET Core
     1. Setting up .NET Core Projects
@@ -55,9 +94,15 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. Setting Up a Database Connection
     1. CRUD Operations
     1. Migrations and Data Seeding
-    1. Projects - TODO
-        1. Link All The Existing Projects
-        1. Don't need new ones.
+    1. Unit Testing
+    1. Projects
+        1. [A simple API Project](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/APIProjectFeb202024)
+        1. [QuickType and RestSharp](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/Consuming3rdPartyAPI)
+        1. [Entity Framework with SQLite](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/EntityFrameWorkDemo)
+        1. [A simple API Project, In Memory](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/WebAPIProjectInMemory)
+        1. [Razor Pages Hello World](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/RazorPagesHelloWorld)
+        1. [Unit Testing](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/TD/TestingHelloWorld)
+        1. [Unit Testing 2](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/TD/DebuggingHelloWorld)
 1. [.Net Core Web](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetCoreWeb/readme.md) 
     1. Overview of .NET Core Web
     1. Basics of application architecture - MVC
@@ -66,14 +111,17 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. Understanding Webservices - Rest
     1. Understanding Webservices - gRPC
     1. Setting up a MVC application (Hands on Demo)
-    1. Projects - TODO
-        1. Link All The Existing Projects
-        1. Don't need new ones.
+    1. Projects
+        1. [Back end API, Authentication API and .NET Razor Pages MVC](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/Mango-TillSection5)
+        1. Project SOAP/WCF TODO 
+        1. Project gRPC TODO
 1. [Blazor](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Blazor/readme.md)
     1. Overview of Blazor
     1. Blazor components and routing
-    1. Building interactive web UIs (Demo)
-    1. Integrating Blazor with .NET Core (Demo)
+    1. Building interactive web UIs
+    1. Integrating Blazor with .NET Core
+    1. Projects
+        1. Blazor TODO
 1. [Dapper](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Dapper/readme.md)
     1. Overview of Dapper
     1. Querying databases with DAPPER
@@ -92,30 +140,44 @@ Note: (Demo) are project folders. I recommend you 'Right Click' and open them in
     1. Building MVC applications
     1. Introduction to ASP.Net Web API
     1. Developing RESTful APIs with ASP.Net
-    1. Demo, Link all the big projects. 
+    1. Project Demos
+        1. [comicbookshop](https://github.com/Jay-study-nildana/comicbookshop)
+        1. [PhoBlober](https://github.com/Jay-study-nildana/PhoBlober)
+1. Additional Topics
+    1. [Azure Functions](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/AzFunctionHWJan282025)
 1. Specific Tools
-    1. Kafka
-    1. RabbitMQ
+    1. Kafka - TODO
+    1. RabbitMQ - TODO
     1. SeriLog
-    1. FluentD
-    1. Logstash
-    1. Elastic Search
-    1. Kibana
+        1. [SerilogSQLite](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/SerilogSQLite)
+    1. FluentD - TODO
+    1. Logstash - TODO
+    1. Elastic Search - TODO
+    1. Kibana - TODO 
 1. DevOps
     1. DevOps CI/CD Overview
     1. Continuous Integration
     1. Continuous Deployment
     1. Deploy via GitHub Actions
     1. Deploy via Azure DevOps
+    1. Project Demos
+        1. [BicepHelloWorld](https://github.com/Jay-study-nildana/AzureDevOpsForStudents/tree/main/BicepHelloWorld)
+        1. [RazorWebAppHelloWorld](https://github.com/Jay-study-nildana/AzureDevOpsForStudents/tree/main/RazorWebAppHelloWorld)
+        1. [WebAPIHelloWorld](https://github.com/Jay-study-nildana/AzureDevOpsForStudents/tree/main/WebAPIHelloWorld)
 1. Containers
     1. Docker Overview
     1. Docker - MS Sql Server
     1. Docker - .Net Projects
-    1. Docker - Angular Projects
-    1. Kubernetes
-    1. Additional Docker Discussion
+    1. Docker - Angular Projects - TODO
+    1. Kubernetes - TODO
+    1. Additional Docker Discussion - TODO
+    1. Project Demos
+        1. [MS SQL in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MSSQLDocker)
+        1. [mysql latest version in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MySQLDocker)
+        1. [mysql version 8 in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MySQLDockerV8)
 1. CapStone Project
-    1. Multiple Projects Available
+    1. [comicbookshop](https://github.com/Jay-study-nildana/comicbookshop)
+    1. [PhoBlober](https://github.com/Jay-study-nildana/PhoBlober)
 
 # book a session with me
 
