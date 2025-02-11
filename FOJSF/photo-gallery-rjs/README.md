@@ -1,6 +1,9 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.1
+# Photo Gallery with ReactJS
 
-Hello and welcome to my corporate training Syllabus. 
+A quick demo that shows a gallery with react js.
+
+1. npm install
+1. npm run start
 
 # book a session with me
 
