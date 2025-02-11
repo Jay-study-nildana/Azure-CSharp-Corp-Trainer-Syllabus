@@ -1,12 +1,8 @@
-# Azure C Sharp Corporate Training Syllabus
-
 Hello and welcome to my corporate training Syllabus. 
 
 Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calendly](https://calendly.com/jaycodingtutor/30min) or [github](https://github.com/Jay-study-nildana) or my email, vijayasimhabr@live.com / jay@thechalakas.com
 
-Note: (Demo) are project folders. I recommend you 'Right Click' and open them in new tab.
-
-## Table of Contents
+## Table of Contents : Version 0.0.2
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
