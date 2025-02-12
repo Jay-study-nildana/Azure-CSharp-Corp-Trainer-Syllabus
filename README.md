@@ -1,6 +1,8 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.2
+# Azure C Sharp Corporate Training Syllabus - Version 0.0.3
 
 Hello and welcome to my corporate training Syllabus. 
+
+The website is here : https://jay-study-nildana.github.io/Azure-CSharp-Corp-Trainer-Syllabus/
 
 # book a session with me
 

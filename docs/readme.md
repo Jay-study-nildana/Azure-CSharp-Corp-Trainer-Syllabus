@@ -2,7 +2,9 @@ Hello and welcome to my corporate training Syllabus.
 
 Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calendly](https://calendly.com/jaycodingtutor/30min) or [github](https://github.com/Jay-study-nildana) or my email, vijayasimhabr@live.com / jay@thechalakas.com
 
-## Table of Contents : Version 0.0.2
+wish to contribute or want to raise a issue? repo is available [here](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus).
+
+## Table of Contents : Version 0.0.3
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
@@ -40,9 +42,9 @@ Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calend
     19. Security Best Practices
     20. Angular Universal (Server-side Rendering)
     21. Internationalization (i18n)
-    22. Project-Blog - TODO
-        1. Project-Blog-BackEnd-DotNet
-        1. Project-Blog-FrontEnd-Angular
+    22. [BungieCordBlog](https://github.com/Jay-study-nildana/BungieCordBlog)
+        1. [BungieCordBlogWebAPI](https://github.com/Jay-study-nildana/BungieCordBlog/tree/main/BungieCordBlogWebAPI)
+        1. [BungieCordBlogWebApp](https://github.com/Jay-study-nildana/BungieCordBlog/tree/main/BungieCordBlogWebApp)
 1. C Sharp Fundamentals
     1. FreeCode Camp Foundational C# with Microsoft
         1. [First Code using C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-one---first-code-using-c)
