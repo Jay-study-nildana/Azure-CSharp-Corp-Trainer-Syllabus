@@ -143,6 +143,9 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
         1. [PhoBlober](https://github.com/Jay-study-nildana/PhoBlober)
 1. Additional Topics
     1. [Azure Functions](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/AzFunctionHWJan282025)
+1. Azure Fundamentals
+    1. [Azure Cosmos DB]()
+    1. [Azure SQL DB]()
 1. Specific Tools
     1. Kafka - TODO
     1. RabbitMQ - TODO
