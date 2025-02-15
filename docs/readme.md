@@ -4,7 +4,7 @@ Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calend
 
 wish to contribute or want to raise a issue? repo is available [here](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus).
 
-## Table of Contents : Version 0.0.3
+## Table of Contents : Version 0.0.4
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
@@ -144,8 +144,10 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 1. Additional Topics
     1. [Azure Functions](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/AzFunctionHWJan282025)
 1. Azure Fundamentals
-    1. [Azure Cosmos DB]()
-    1. [Azure SQL DB]()
+    1. [Azure Cosmos DB](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/CosmosDB)
+        1. [cosmos-dotnet](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/CosmosDB/cosmos-dotnet)
+    1. [Azure SQL DB](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/SQLDB)
+        1. [SQLQueries](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/SQLDB/SQLQueries)
 1. Specific Tools
     1. Kafka - TODO
     1. RabbitMQ - TODO
