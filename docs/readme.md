@@ -4,7 +4,7 @@ Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calend
 
 wish to contribute or want to raise a issue? repo is available [here](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus).
 
-## Table of Contents : Version 0.0.3
+## Table of Contents : Version 0.0.4
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
