@@ -6,7 +6,7 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 
 GitHub Project Management Board is available here : [https://github.com/users/Jay-study-nildana/projects/7](https://github.com/users/Jay-study-nildana/projects/7)
 
-## Table of Contents : Version 0.0.5
+## Table of Contents : Version 0.0.6
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
     1. Overview
@@ -87,7 +87,7 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
         1. Regular Expressions 
         1. Files and Folders 
 1. [SQL Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/SQLFundamentals/readme.md)
-    1. [Transact-SQL]()
+    1. [Transact-SQL](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/SQLFundamentals/Transact-SQL)
 1. [.NET Core Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetFundamentals/readme.md)
     1. Overview of .NET Core
     1. Setting up .NET Core Projects
