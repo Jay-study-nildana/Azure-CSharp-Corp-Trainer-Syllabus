@@ -86,6 +86,8 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
         1. Math (Class that helps with Math Operations) 
         1. Regular Expressions 
         1. Files and Folders 
+1. [SQL Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/SQLFundamentals/readme.md)
+    1. [Transact-SQL]()
 1. [.NET Core Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/DotNetFundamentals/readme.md)
     1. Overview of .NET Core
     1. Setting up .NET Core Projects
