@@ -1,9 +1,10 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.7
+# DC Comics
 
-Hello and welcome to my corporate training Syllabus.
+A simple practice db around dc comics theme.
 
-1. The website is here : https://jay-study-nildana.github.io/Azure-CSharp-Corp-Trainer-Syllabus/
-1. GitHub Project Management Board is available here : https://github.com/users/Jay-study-nildana/projects/7
+# References
+
+1. [Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
 
 # book a session with me
 
