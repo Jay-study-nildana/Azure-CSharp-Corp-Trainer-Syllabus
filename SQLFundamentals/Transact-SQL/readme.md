@@ -2,7 +2,7 @@
 
 This section has some things related to Transact-SQL.
 
-Note: I used the Adventure Works 2019 OLTP database for all the queries. It's about 200 MB, and is available here, 
+Note: I used the Adventure Works 2019 OLTP database for all the queries. 
 
 # References
 
