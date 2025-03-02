@@ -1,9 +1,15 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.11
+# CosmosDB
 
-Hello and welcome to my corporate training Syllabus.
+Some essential Azure things, CosmosDB.
 
-1. The website is here : https://jay-study-nildana.github.io/Azure-CSharp-Corp-Trainer-Syllabus/
-1. GitHub Project Management Board is available here : https://github.com/users/Jay-study-nildana/projects/7
+## Azure Table Storage
+
+1. [table-storage-dotnet](table-storage-dotnet)
+
+# References
+
+1. https://github.com/AzureCosmosDB/quickstart-table-dotnet
+1. https://learn.microsoft.com/en-us/azure/cosmos-db/table/quickstart-dotnet
 
 # book a session with me
 

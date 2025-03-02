@@ -2,6 +2,8 @@
 
 Some essential Azure things, Azure SQL DB.
 
+Also check, [SQLFundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/SQLFundamentals/readme.md)
+
 ## Database Stuff - CosmosDB
 
 1. [SQLQueries](SQLQueries)
