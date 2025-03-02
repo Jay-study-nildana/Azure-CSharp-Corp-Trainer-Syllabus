@@ -6,7 +6,7 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 
 GitHub Project Management Board is available here : [https://github.com/users/Jay-study-nildana/projects/7](https://github.com/users/Jay-study-nildana/projects/7)
 
-## Table of Contents : Version 0.0.10
+## Table of Contents : Version 0.0.11
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
    1. Overview
@@ -153,6 +153,8 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
       1. [cosmos-dotnet](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/CosmosDB/cosmos-dotnet)
    1. [Azure SQL DB](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/SQLDB)
       1. [SQLQueries](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/SQLDB/SQLQueries)
+   1. [Azure Table Storage](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/TableStorage)
+      1. [table-storage-dotnet](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/TableStorage/table-storage-dotnet)
 1. Specific Tools
    1. Kafka - TODO
    1. RabbitMQ - TODO

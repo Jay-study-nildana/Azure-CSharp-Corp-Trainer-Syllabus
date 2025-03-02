@@ -6,6 +6,7 @@ Some essential Azure things.
 
 1. [CosmosDB](CosmosDB)
 1. [SQLDB](SQLDB)
+1. [TableStorage](TableStorage)
 
 # book a session with me
 
