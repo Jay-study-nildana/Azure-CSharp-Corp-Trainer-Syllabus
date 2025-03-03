@@ -6,7 +6,7 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 
 GitHub Project Management Board is available here : [https://github.com/users/Jay-study-nildana/projects/7](https://github.com/users/Jay-study-nildana/projects/7)
 
-## Table of Contents : Version 0.0.11
+## Table of Contents : Version 0.0.12
 
 1. [Fundamentals of JS Frameworks](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/FOJSF/readme.md)
    1. Overview
@@ -102,6 +102,9 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
       1. [A simple API Project](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/APIProjectFeb202024)
       1. [QuickType and RestSharp](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/Consuming3rdPartyAPI)
       1. [Entity Framework with SQLite](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/EntityFrameWorkDemo)
+         1. [EFSQLiteDemo](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/MS/EntityFrameWorkDemo/EFSQLiteDemo)
+         1. [EFMSSQLServerDemo](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/MS/EntityFrameWorkDemo/EFMSSQLServerDemo)
+         1. [EFSQLiteDemoManytoMany](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/MS/EntityFrameWorkDemo/EFSQLiteDemoManytoMany)
       1. [A simple API Project, In Memory](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/WebAPIProjectInMemory)
       1. [Razor Pages Hello World](https://github.com/Jay-study-nildana/CSharpForStudents/blob/main/CS2024/MS/RazorPagesHelloWorld)
       1. [Unit Testing](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2024/TD/TestingHelloWorld)
