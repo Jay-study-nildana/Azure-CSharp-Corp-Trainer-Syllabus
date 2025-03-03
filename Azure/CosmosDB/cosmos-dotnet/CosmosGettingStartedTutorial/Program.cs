@@ -55,24 +55,76 @@ namespace CosmosGettingStartedTutorial
         }
         // </Main>
 
-        // <GetStartedDemoAsync>
-        /// <summary>
-        /// Entry point to call methods that operate on Azure Cosmos DB resources in this sample
-        /// </summary>
         public async Task GetStartedDemoAsync()
         {
             // Create a new instance of the Cosmos Client
             this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions() { ApplicationName = "CosmosDBDotnetQuickstart" });
-            await this.CreateDatabaseAsync();
-            await this.CreateContainerAsync();
-            await this.ScaleContainerAsync();
-            await this.AddItemsToContainerAsync();
-            await this.QueryItemsAsync();
-            await this.ReplaceFamilyItemAsync();
-            await this.DeleteFamilyItemAsync();
-            await this.DeleteDatabaseAndCleanupAsync();
+
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Select an action:");
+                Console.WriteLine("a. Create Database");
+                Console.WriteLine("b. Create Container");
+                Console.WriteLine("c. Scale Container");
+                Console.WriteLine("d. Add Items to Container");
+                Console.WriteLine("e. Query Items");
+                Console.WriteLine("f. Replace Family Item");
+                Console.WriteLine("g. Delete Family Item");
+                Console.WriteLine("h. Delete Database and Cleanup");
+                Console.WriteLine("i. Show All Databases");
+                Console.WriteLine("j. Show All Containers");
+                Console.WriteLine("k. Show All Items in Each Container");
+                Console.WriteLine("l. Exit");
+
+                var key = Console.ReadKey(true).KeyChar;
+                Console.WriteLine("Loading...");
+
+                switch (key)
+                {
+                    case 'a':
+                        await this.CreateDatabaseAsync();
+                        break;
+                    case 'b':
+                        await this.CreateContainerAsync();
+                        break;
+                    case 'c':
+                        await this.ScaleContainerAsync();
+                        break;
+                    case 'd':
+                        await this.AddItemsToContainerAsync();
+                        break;
+                    case 'e':
+                        await this.QueryItemsAsync();
+                        break;
+                    case 'f':
+                        await this.ReplaceFamilyItemAsync();
+                        break;
+                    case 'g':
+                        await this.DeleteFamilyItemAsync();
+                        break;
+                    case 'h':
+                        await this.DeleteDatabaseAndCleanupAsync();
+                        break;
+                    case 'i':
+                        await this.ShowAllDatabasesAsync();
+                        break;
+                    case 'j':
+                        await this.ShowAllContainersAsync();
+                        break;
+                    case 'k':
+                        await this.ShowAllItemsInEachContainerAsync();
+                        break;
+                    case 'l':
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid selection. Please try again.");
+                        break;
+                }
+
+            }
         }
-        // </GetStartedDemoAsync>
 
         // <CreateDatabaseAsync>
         /// <summary>
@@ -80,9 +132,20 @@ namespace CosmosGettingStartedTutorial
         /// </summary>
         private async Task CreateDatabaseAsync()
         {
-            // Create a new database
-            this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
-            Console.WriteLine("Created Database: {0}\n", this.database.Id);
+            try
+            {
+                // Create a new database
+                this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
+                Console.WriteLine("Created Database: {0}\n", this.database.Id);
+            }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
         }
         // </CreateDatabaseAsync>
 
@@ -94,9 +157,26 @@ namespace CosmosGettingStartedTutorial
         /// <returns></returns>
         private async Task CreateContainerAsync()
         {
-            // Create a new container
-            this.container = await this.database.CreateContainerIfNotExistsAsync(containerId, "/partitionKey");
-            Console.WriteLine("Created Container: {0}\n", this.container.Id);
+            try
+            {
+                if (this.database == null)
+                {
+                    Console.WriteLine("Database is not initialized. Please create the database first.");
+                    return;
+                }
+
+                // Create a new container
+                this.container = await this.database.CreateContainerIfNotExistsAsync(containerId, "/partitionKey");
+                Console.WriteLine("Created Container: {0}\n", this.container.Id);
+            }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
         }
         // </CreateContainerAsync>
 
@@ -240,25 +320,47 @@ namespace CosmosGettingStartedTutorial
         /// </summary>
         private async Task QueryItemsAsync()
         {
-            var sqlQueryText = "SELECT * FROM c WHERE c.PartitionKey = 'Andersen'";
+            var sqlQueryText = "SELECT * FROM c WHERE c.partitionKey = 'Andersen'";
 
             Console.WriteLine("Running query: {0}\n", sqlQueryText);
+
+            if (this.container == null)
+            {
+                Console.WriteLine("Container is not initialized.");
+                return;
+            }
 
             QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
             FeedIterator<Family> queryResultSetIterator = this.container.GetItemQueryIterator<Family>(queryDefinition);
 
             List<Family> families = new List<Family>();
 
-            while (queryResultSetIterator.HasMoreResults)
+            try
             {
-                FeedResponse<Family> currentResultSet = await queryResultSetIterator.ReadNextAsync();
-                foreach (Family family in currentResultSet)
+                while (queryResultSetIterator.HasMoreResults)
                 {
-                    families.Add(family);
-                    Console.WriteLine("\tRead {0}\n", family);
+                    FeedResponse<Family> currentResultSet = await queryResultSetIterator.ReadNextAsync();
+                    if (currentResultSet.Count == 0)
+                    {
+                        Console.WriteLine("No items found.");
+                    }
+                    foreach (Family family in currentResultSet)
+                    {
+                        families.Add(family);
+                        Console.WriteLine("\tRead {0}\n", family);
+                    }
                 }
             }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
         }
+
         // </QueryItemsAsync>
 
         // <ReplaceFamilyItemAsync>
@@ -311,5 +413,91 @@ namespace CosmosGettingStartedTutorial
             this.cosmosClient.Dispose();
         }
         // </DeleteDatabaseAndCleanupAsync>
+
+        private async Task ShowAllDatabasesAsync()
+        {
+            try
+            {
+                var iterator = this.cosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+                var databases = await iterator.ReadNextAsync();
+                Console.WriteLine("Databases:");
+                foreach (var db in databases)
+                {
+                    Console.WriteLine($"- {db.Id}");
+                }
+            }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
+        }
+
+        private async Task ShowAllContainersAsync()
+        {
+            try
+            {
+                var iterator = this.cosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+                var databases = await iterator.ReadNextAsync();
+                foreach (var db in databases)
+                {
+                    var database = this.cosmosClient.GetDatabase(db.Id);
+                    var containerIterator = database.GetContainerQueryIterator<ContainerProperties>();
+                    var containers = await containerIterator.ReadNextAsync();
+                    Console.WriteLine($"Database: {db.Id}");
+                    foreach (var container in containers)
+                    {
+                        Console.WriteLine($"- Container: {container.Id}");
+                    }
+                }
+            }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
+        }
+
+        private async Task ShowAllItemsInEachContainerAsync()
+        {
+            try
+            {
+                var iterator = this.cosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+                var databases = await iterator.ReadNextAsync();
+                foreach (var db in databases)
+                {
+                    var database = this.cosmosClient.GetDatabase(db.Id);
+                    var containerIterator = database.GetContainerQueryIterator<ContainerProperties>();
+                    var containers = await containerIterator.ReadNextAsync();
+                    Console.WriteLine($"Database: {db.Id}");
+                    foreach (var container in containers)
+                    {
+                        Console.WriteLine($"- Container: {container.Id}");
+                        var containerInstance = database.GetContainer(container.Id);
+                        var itemIterator = containerInstance.GetItemQueryIterator<dynamic>("SELECT * FROM c");
+                        var items = await itemIterator.ReadNextAsync();
+                        foreach (var item in items)
+                        {
+                            Console.WriteLine($"  - Item: {item}");
+                        }
+                    }
+                }
+            }
+            catch (CosmosException ex)
+            {
+                Console.WriteLine("CosmosException with status code {0} occurred: {1}", ex.StatusCode, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: {0}", ex.Message);
+            }
+        }
+
     }
 }
