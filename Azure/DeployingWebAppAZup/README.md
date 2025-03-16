@@ -1,13 +1,10 @@
-# Azure Fundamentals
+# Azure Cloud Shell - Deploying HTML Web App
 
-Some essential Azure things.
+A simple project I created for practising with az command upload. 
 
-## Database Stuff
+## Reference
 
-1. [CosmosDB](CosmosDB)
-1. [SQLDB](SQLDB)
-1. [TableStorage](TableStorage)
-1. [DeployingWebAppAZup](DeployingWebAppAZup)
+1. https://vijayasimhabr.medium.com/azure-cloud-shell-deploying-html-web-app-33bfb320fe77
 
 # book a session with me
 
