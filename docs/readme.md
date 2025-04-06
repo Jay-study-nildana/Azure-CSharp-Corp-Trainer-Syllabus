@@ -127,7 +127,8 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
    1. Building interactive web UIs
    1. Integrating Blazor with .NET Core
    1. Projects
-      1. Blazor TODO
+      1. [Blazor Hello World](https://github.com/Jay-study-nildana/BlazorForStudents/tree/main/BlazorHelloWorld)
+      1. [Blazor Comic Book Shop](https://github.com/Jay-study-nildana/BlazorForStudents/tree/main/ComicBookShopBlazor)
 1. [Dapper](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/blob/main/Dapper/readme.md)
    1. Overview of Dapper
    1. Querying databases with DAPPER
