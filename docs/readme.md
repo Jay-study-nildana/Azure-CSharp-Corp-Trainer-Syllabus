@@ -47,6 +47,8 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
    22. [BungieCordBlog](https://github.com/Jay-study-nildana/BungieCordBlog)
        1. [BungieCordBlogWebAPI](https://github.com/Jay-study-nildana/BungieCordBlog/tree/main/BungieCordBlogWebAPI)
        1. [BungieCordBlogWebApp](https://github.com/Jay-study-nildana/BungieCordBlog/tree/main/BungieCordBlogWebApp)
+   23. [AngularForStudents](https://github.com/Jay-study-nildana/AngularForStudents)
+      1. Contains Collection of Angular projects suitable for .Net Developers.
 1. C Sharp Fundamentals
    1. FreeCode Camp Foundational C# with Microsoft
       1. [First Code using C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-one---first-code-using-c)
@@ -190,9 +192,10 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
       1. [MS SQL in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MSSQLDocker)
       1. [mysql latest version in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MySQLDocker)
       1. [mysql version 8 in docker](https://github.com/Jay-study-nildana/DockerForStudents/blob/main/MySQLDockerV8)
-1. CapStone Project
-   1. [comicbookshop](https://github.com/Jay-study-nildana/comicbookshop)
+1. Projects
+   1. [comic book shop](https://github.com/Jay-study-nildana/comicbookshop)
    1. [PhoBlober](https://github.com/Jay-study-nildana/PhoBlober)
+   1. [Zoo CMS](https://github.com/Jay-study-nildana/ZooCMS)
 
 # book a session with me
 
