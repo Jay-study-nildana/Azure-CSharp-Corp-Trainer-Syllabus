@@ -59,6 +59,7 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
       1. [Debug C#](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#chapters-and-code---section-six---debug-c)
       1. [Foundational C# with Microsoft Certification](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/FreeCodeCampCSharp#foundational-c-with-microsoft-certification)
    1. [SOLID Principles](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/SOLIDPrinciples/SOLID-principles-harrymt-modified)
+   1. [Design Patterns](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/DesignPatterns)
    1. Logging
       1. [LoggingWithEFCoreSQLite](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/LoggingWithEFCoreSQLite)
       1. [SerilogSQLite](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/SerilogSQLite)
@@ -150,11 +151,12 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
    1. Introduction to ASP.Net Web API
    1. Developing RESTful APIs with ASP.Net
    1. Project Demos
-      1. [comicbookshop](https://github.com/Jay-study-nildana/comicbookshop)
-      1. [PhoBlober](https://github.com/Jay-study-nildana/PhoBlober)
-      1. [April 2025 Collection](https://github.com/Jay-study-nildana/ZooCMS)
+      1. [Comic Book Shop Full Stack .Net Razor Project](https://github.com/Jay-study-nildana/comicbookshop)
+      1. [PhoBlober Azure AI Razor Project](https://github.com/Jay-study-nildana/PhoBlober)
+      1. [Zoo CMS Plus Additional .NET Angular Projects](https://github.com/Jay-study-nildana/ZooCMS)
 1. Additional Topics
    1. [Azure Functions](https://github.com/Jay-study-nildana/CSharpForStudents/tree/main/CS2025/AzFunctionHWJan282025)
+   1. [DC Comics Azure Hello World](DCComicsMar62025)
 1. Azure Fundamentals
    1. [Azure Cosmos DB](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/CosmosDB)
       1. [cosmos-dotnet](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure/CosmosDB/cosmos-dotnet)
