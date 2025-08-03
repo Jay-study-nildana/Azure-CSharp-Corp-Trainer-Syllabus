@@ -15,7 +15,10 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
 - Improved formatting and added additional resource links.
 
 ### Version 0.0.13
-- Previous documentation structure with fewer resource links and less organization.
+- Initial documentation structure with basic sections for syllabus and resources.
+- Table of Contents included only core topics (Frontend, Angular, ReactJS, Blazor, C#, SQL, Azure).
+- Fewer resource links; project management, hiring, and booking sections were not present.
+- Formatting was simpler and less organized.
 ## Table of Contents : Version 0.0.14
 
 1. [Frontend For Students](https://github.com/Jay-study-nildana/FrontEndForStudents)
