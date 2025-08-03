@@ -18,7 +18,7 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
 - Previous documentation structure with fewer resource links and less organization.
 ## Table of Contents : Version 0.0.14
 
-1. [Front End For Students](https://github.com/Jay-study-nildana/FrontEndForStudents)
+1. [Frontend For Students](https://github.com/Jay-study-nildana/FrontEndForStudents)
 1. Fundamentals of JS Frameworks
    1. [TypeScriptDemo](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/TypeScriptDemo)
    1. [photo-gallery-angularjs](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/FOJSF/photo-gallery-ajs)
