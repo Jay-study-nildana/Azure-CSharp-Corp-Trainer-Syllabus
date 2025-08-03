@@ -6,6 +6,16 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 
 GitHub Project Management Board is available here : [https://github.com/users/Jay-study-nildana/projects/7](https://github.com/users/Jay-study-nildana/projects/7)
 
+## Changelog
+
+### Version 0.0.14 (Current)
+- Major restructuring of documentation for improved clarity and navigation.
+- Updated Table of Contents to reflect new organization and added links to individual student resources.
+- Added new sections for project management, hiring, and booking sessions.
+- Improved formatting and added additional resource links.
+
+### Version 0.0.13
+- Previous documentation structure with fewer resource links and less organization.
 ## Table of Contents : Version 0.0.14
 
 1. [Front End For Students](https://github.com/Jay-study-nildana/FrontEndForStudents)
