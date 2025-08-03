@@ -1,4 +1,4 @@
-# Azure C Sharp Corporate Training Syllabus - Version 0.0.13
+# Azure C Sharp Corporate Training Syllabus
 
 Hello and welcome to my corporate training Syllabus.
 
