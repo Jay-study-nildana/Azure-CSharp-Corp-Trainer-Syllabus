@@ -1,3 +1,5 @@
+# Jay's .Net C Sharp Azure Corporate Training Syllabus 
+
 Hello and welcome to my corporate training Syllabus.
 
 Note: Get in touch via my [website](https://stories.thechalakas.com/) or [calendly](https://calendly.com/jaycodingtutor/30min) or [github](https://github.com/Jay-study-nildana) or my email, vijayasimhabr@live.com / jay@thechalakas.com
@@ -6,19 +8,6 @@ wish to contribute or want to raise a issue? repo is available [here](https://gi
 
 GitHub Project Management Board is available here : [https://github.com/users/Jay-study-nildana/projects/7](https://github.com/users/Jay-study-nildana/projects/7)
 
-## Changelog
-
-### Version 0.0.14 (Current)
-- Major restructuring of documentation for improved clarity and navigation.
-- Updated Table of Contents to reflect new organization and added links to individual student resources.
-- Added new sections for project management, hiring, and booking sessions.
-- Improved formatting and added additional resource links.
-
-### Version 0.0.13
-- Initial documentation structure with basic sections for syllabus and resources.
-- Table of Contents included only core topics (Frontend, Angular, ReactJS, Blazor, C#, SQL, Azure).
-- Fewer resource links; project management, hiring, and booking sections were absent.
-- Formatting was simpler and less organized.
 ## Table of Contents : Version 0.0.14
 
 1. [Frontend For Students](https://github.com/Jay-study-nildana/FrontEndForStudents)
@@ -44,6 +33,7 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
 1. [Azure Fundamentals](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Azure)
 1. [ADO.NET](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/ADONET)
 1. [Dapper](https://github.com/Jay-study-nildana/Azure-CSharp-Corp-Trainer-Syllabus/tree/main/Dapper)
+
 # book a session with me
 
 1. [calendly](https://calendly.com/jaycodingtutor/30min)
