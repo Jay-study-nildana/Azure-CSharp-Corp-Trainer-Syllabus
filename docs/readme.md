@@ -17,7 +17,7 @@ GitHub Project Management Board is available here : [https://github.com/users/Ja
 ### Version 0.0.13
 - Initial documentation structure with basic sections for syllabus and resources.
 - Table of Contents included only core topics (Frontend, Angular, ReactJS, Blazor, C#, SQL, Azure).
-- Fewer resource links; project management, hiring, and booking sections were not present.
+- Fewer resource links; project management, hiring, and booking sections were absent.
 - Formatting was simpler and less organized.
 ## Table of Contents : Version 0.0.14
 
