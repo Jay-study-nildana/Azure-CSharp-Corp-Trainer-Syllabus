@@ -2,12 +2,7 @@
 
 This section has some things related to SQL.
 
-## Folders
-
-1. [Transact-SQL](Transact-SQL)
-1. [DCComics](DCComics)
-
-## Things to remember
+## Things to remember (Microsoft SQL)
 
 1. You need a database to play around. Either create one on Azure Portal (recommended) or local database or via Docker.
 1. You should have SQL Server Management Studio
