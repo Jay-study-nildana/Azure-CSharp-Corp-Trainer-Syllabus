@@ -1,10 +1,10 @@
 # DC Comics
 
-A simple practice db around dc comics theme for Microsoft SQL
+A simple practice db around dc comics theme for PostGres SQL.
 
-# References
+# Note
 
-1. [Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
+The free SQL feature of supabase was used while testing this file.
 
 # book a session with me
 
