@@ -4,7 +4,7 @@ A simple practice db around dc comics theme for PostGres SQL.
 
 # Note
 
-The free SQL feature of supabase was used while testing this file. 
+The free SQL feature of supabase was used while testing this file.
 
 # book a session with me
 
