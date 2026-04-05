@@ -1,10 +1,10 @@
-# DC Comics
+# CosmosDB - Hello World
 
-A simple practice db around dc comics theme for PostGres SQL.
+Hello World Cosmost DB example.
 
-# Note
+## Inspired by
 
-The free SQL feature of supabase was used while testing this file.
+1. https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart
 
 ## book a session with me
 

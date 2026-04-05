@@ -1,14 +1,15 @@
-# SQL Fundamentals - Transact-SQL
+# CosmosDB
 
-This section has some things related to Transact-SQL.
+Some essential Azure things, CosmosDB.
 
-Note: I used the Adventure Works 2019 OLTP database for all the queries.
+## Azure Table Storage
+
+1. [table-storage-dotnet](table-storage-dotnet)
 
 # References
 
-1. [Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
-1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
-1. [AdventureWorks sample databases](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
+1. https://github.com/AzureCosmosDB/quickstart-table-dotnet
+1. https://learn.microsoft.com/en-us/azure/cosmos-db/table/quickstart-dotnet
 
 ## book a session with me
 

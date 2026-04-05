@@ -1,10 +1,10 @@
-# DC Comics
+# CosmosDB
 
-A simple practice db around dc comics theme for PostGres SQL.
+Some essential Azure things, CosmosDB.
 
-# Note
+## Database Stuff - CosmosDB
 
-The free SQL feature of supabase was used while testing this file.
+1. [cosmos-dotnet](cosmos-dotnet)
 
 ## book a session with me
 
