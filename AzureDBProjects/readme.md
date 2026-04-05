@@ -1,10 +1,6 @@
-# DC Comics
+# Azure DB
 
-A simple practice db around dc comics theme for PostGres SQL.
-
-# Note
-
-The free SQL feature of supabase was used while testing this file.
+Some essential Azure DB things.
 
 ## book a session with me
 

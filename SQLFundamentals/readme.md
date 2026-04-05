@@ -6,16 +6,16 @@ This section has some things related to SQL.
 
 1. You need a database to play around. Either create one on Azure Portal (recommended) or local database or via Docker.
 1. You should have SQL Server Management Studio
-1. You could also try AZure Data Studio. 
+1. You could also try AZure Data Studio.
 1. Use Adventure Works database, [available here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
-    1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
-    1. use the 'OLTP' version of the database. 
+   1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
+   1. use the 'OLTP' version of the database.
 
-# book a session with me
+## book a session with me
 
 1. [calendly](https://calendly.com/jaycodingtutor/30min)
 
-# hire and get to know me
+## hire and get to know me
 
 find ways to hire me, follow me and stay in touch with me.
 

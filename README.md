@@ -5,11 +5,11 @@ Hello and welcome to my corporate training Syllabus.
 1. The website is here : https://jay-study-nildana.github.io/Azure-CSharp-Corp-Trainer-Syllabus/
 1. GitHub Project Management Board is available here : https://github.com/users/Jay-study-nildana/projects/7
 
-# book a session with me
+## book a session with me
 
 1. [calendly](https://calendly.com/jaycodingtutor/30min)
 
-# hire and get to know me
+## hire and get to know me
 
 find ways to hire me, follow me and stay in touch with me.
 
