@@ -2,8 +2,25 @@
 
 Hello and welcome to my corporate training Syllabus.
 
-1. The website is here : https://jay-study-nildana.github.io/Azure-CSharp-Corp-Trainer-Syllabus/
-1. GitHub Project Management Board is available here : https://github.com/users/Jay-study-nildana/projects/7
+Look at these related repos (along with code already available here)
+
+Fundamental Learning (Learn the basics)
+
+1. https://github.com/Jay-study-nildana/CSharpForStudents
+1. https://github.com/Jay-study-nildana/LearningHelperForStudents
+1. https://github.com/Jay-study-nildana/BungieCordBlog
+1. https://github.com/Jay-study-nildana/FrontEndForStudents
+1. https://github.com/Jay-study-nildana/DockerForStudents
+
+Projects ({Apply your knowledge})
+
+1. https://github.com/Jay-study-nildana/TypingForStudents
+1. https://github.com/Jay-study-nildana/BungieCordBlog
+1. https://github.com/Jay-study-nildana/comicbookshop
+1. https://github.com/Jay-study-nildana/PhoBlober
+1. https://github.com/Jay-study-nildana/P5JSForStudents
+
+Note: you are welcome to contribute to any of these repos and gain some open source contribution cred. 
 
 ## book a session with me
 
