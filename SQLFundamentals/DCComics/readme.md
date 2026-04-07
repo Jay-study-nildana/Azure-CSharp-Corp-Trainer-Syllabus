@@ -2,6 +2,12 @@
 
 A simple practice db around dc comics theme for Microsoft SQL
 
+## Notes
+
+1. Ideally, you will use the SQL Server on windows that comes with SQL Server Management Studio for practice
+1. Or an Azure (hopefully the free) Server DB
+1. Or, you are on linux or Mac, you can fire up a SQL server via Docker. Docker file and setup instructions, are available here : https://github.com/Jay-study-nildana/DockerForStudents/tree/main/MSSQLDocker
+
 # References
 
 1. [Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
