@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  mssql:
+    build: ./docker/mssql
+    image: dbpoly_mssql:latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    restart: unless-stopped
+
+  mongodb:
+    build: ./docker/mongodb
+    image: dbpoly_mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  neo4j:
+    build: ./docker/neo4j
+    image: dbpoly_neo4j:latest
+    environment:
+      - NEO4J_AUTH=neo4j/test
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+    restart: unless-stopped
+
+  redis:
+    build: ./docker/redis
+    image: dbpoly_redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  mssql_data:
+  mongo_data:
+  neo4j_data:
+  redis_data:
+
+# How to run:
+# 1) Start all services in detached mode:
+#    docker-compose up -d
+# 2) View logs for a service:
+#    docker-compose logs -f mssql
+# 3) Stop and remove containers + networks:
+#    docker-compose down
+# 4) Remove volumes as well (careful - data loss):
+#    docker-compose down -v
