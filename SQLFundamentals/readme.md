@@ -2,16 +2,18 @@
 
 This section has some things related to SQL.
 
-Note: Use one of the dedicated platform specific folders, or begin your learning with the 'SQL5Days' Curriculum.
+Note: Use one of the dedicated platform specific folders, or begin your learning with the 'SQL5Days' Curriculum. 
 
-## Things to remember (Microsoft SQL)
+## Adventure Works database
 
-1. You need a database to play around. Either create one on Azure Portal (recommended) or local database or via Docker.
-1. You should have SQL Server Management Studio
-1. You could also try AZure Data Studio.
-1. Use Adventure Works database, [available here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
-   1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
-   1. use the 'OLTP' version of the database.
+Use Adventure Works database, [available here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
+
+1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
+1. use the 'OLTP' version of the database.
+
+## Docker Images
+
+Ready to use, Docker Images available here, https://github.com/Jay-study-nildana/DockerForStudents/
 
 ## book a session with me
 
