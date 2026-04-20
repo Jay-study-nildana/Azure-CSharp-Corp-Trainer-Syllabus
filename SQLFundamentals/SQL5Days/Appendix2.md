@@ -2,6 +2,186 @@
 
 Some more notes and corrections for the curricullum.
 
+## note 0
+
+This is not working. 
+
+ SET @SQL = N'SELECT * FROM ' + QUOTENAME('dbo') + N'.' + QUOTENAME(@TableName) +
+            N' WHERE ' + QUOTENAME(@ColumnName) + N' LIKE @SearchVal';
+
+We need to remove this, or, put a new example. 
+
+ I have this stored procedure.                                                                       
+                                                                                                      
+  CREATE PROCEDURE dbo.usp_ProcessBatchOrders                                                         
+  AS                                                                                                  
+  BEGIN                                                                                               
+      SET NOCOUNT ON;                                                                                 
+                                                                                                      
+      DECLARE @OrderID INT;                                                                           
+      DECLARE @ErrorCount INT = 0;                                                                    
+                                                                                                      
+      DECLARE order_cursor CURSOR LOCAL FAST_FORWARD FOR                                              
+          SELECT OrderID FROM dbo.Orders WHERE Status = N'Pending';                                   
+                                                                                                      
+      OPEN order_cursor;                                                                              
+      FETCH NEXT FROM order_cursor INTO @OrderID;                                                     
+                                                                                                      
+      WHILE @@FETCH_STATUS = 0                                                                        
+      BEGIN                                                                                           
+          BEGIN TRY                                                                                   
+              UPDATE dbo.Orders                                                                       
+              SET Status = N'Processing'                                                              
+              WHERE OrderID = @OrderID;                                                               
+                                                                                                      
+              PRINT CONCAT(N'Order', @OrderID,N' processed successfully.');                           
+          END TRY                                                                                     
+          BEGIN CATCH                                                                                 
+              SET @ErrorCount = @ErrorCount + 1;                                                      
+                                                                                                      
+              INSERT INTO dbo.AuditLog (TableName,Operation,RecordID,NewValues)                       
+              VALUES                                                                                  
+              (                                                                                       
+                  N'Orders', N'Errors', @OrderID,                                                     
+                  CONCAT(N'Error Processing:', ERROR_MESSAGE())                                       
+              );                                                                                      
+                                                                                                      
+              PRINT CONCAT (N'Error Processing Order. Order ID : ', @OrderID, N'  ', ERROR_MESSAGE());
+          END CATCH                                                                                   
+                                                                                                      
+          FETCH NEXT FROM order_cursor INTO @OrderID;                                                 
+      END                                                                                             
+                                                                                                      
+      CLOSE order_cursor;                                                                             
+      DEALLOCATE order_cursor;                                                                        
+                                                                                                      
+      PRINT CONCAT(N'Batch Completed. Errors :', @ErrorCount)                                         
+  END;                                                                                                
+                                                                                                      
+  I need two usage examples.                                                                          
+
+● Here are two usage examples for your stored procedure dbo.usp_ProcessBatchOrders:
+
+  Example 1: Basic Execution
+
+   -- Process all pending orders
+   EXEC dbo.usp_ProcessBatchOrders;
+
+  This will update all orders with Status = 'Pending' to 'Processing', print messages for each, and log any errors to
+  dbo.AuditLog.
+
+  Example 2: Check Results After Execution
+
+   -- Run the batch process
+   EXEC dbo.usp_ProcessBatchOrders;
+   
+   -- Review updated orders
+   SELECT OrderID, Status FROM dbo.Orders WHERE Status = N'Processing';
+   
+   -- Review any errors logged
+   SELECT * FROM dbo.AuditLog WHERE TableName = N'Orders' AND Operation = N'Errors';
+
+  This lets you verify which orders were processed and see any errors that occurred.
+
+I need to test this trigger actually works
+
+CREATE TRIGGER trg_Products_Audit
+ON
+    dbo.Products
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS
+    (
+        SELECT 1
+        FROM inserted
+    )
+    AND
+    NOT EXISTS
+    (
+        SELECT 1
+        FROM deleted
+    )
+    BEGIN
+        INSERT INTO dbo.AuditLog(TableName,Operation,RecordID,NewValues)
+        SELECT
+            N'Products',
+            N'INSERT',
+            i.ProductID,
+            CONCAT(N'Name', i.ProductName, N', Price',i.Price)
+        FROM
+            inserted i;
+    END;
+
+    IF EXISTS
+    (
+        SELECT 1
+        FROM inserted
+    )
+    AND
+    EXISTS
+    (
+        SELECT 1
+        FROM deleted
+    )
+    BEGIN
+        INSERT INTO dbo.AuditLog(TableName,Operation,RecordID,OldValues,NewValues)
+        SELECT
+            N'Products',
+            N'UPDATE',
+            i.ProductID,
+            CONCAT(N'Name : ', d.ProductName, N', Price : ',d.Price),
+            CONCAT(N'Name: ', i.ProductName, N', Price: ', i.Price)
+        FROM 
+            inserted i
+        JOIN
+            deleted d ON i.ProductID = d.ProductID;
+    END;
+
+    IF NOT EXISTS
+    (
+        SELECT 1 
+        FROM inserted
+    )
+    AND
+    EXISTS
+    (
+        SELECT 1
+        FROM deleted
+    )
+    BEGIN
+        INSERT INTO dbo.AuditLog (TableName,Operation,RecordID,OldValues)
+        SELECT
+            N'Products',
+            N'DELETE',
+            d.ProductID,
+            CONCAT(N'Name: ', d.ProductName, N'Price : ', d.Price)
+        FROM 
+            deleted d;
+    END;
+END
+
+To test your trigger trg_Products_Audit, follow these steps:
+
+ 1. Insert a product
+
+ INSERT INTO dbo.Products (ProductName, Price) VALUES (N'Widget', 100.00);
+ SELECT * FROM dbo.AuditLog WHERE Operation = N'INSERT';
+
+ 1. Update the product
+
+ UPDATE dbo.Products SET Price = 120.00 WHERE ProductName = N'Widget';
+ SELECT * FROM dbo.AuditLog WHERE Operation = N'UPDATE';
+
+ 1. Delete the product
+
+ DELETE FROM dbo.Products WHERE ProductName = N'Widget';
+ SELECT * FROM dbo.AuditLog WHERE Operation = N'DELETE';
+
+Each step will create an entry in dbo.AuditLog, which you can verify with the SELECT statements
+
 ## note 1
 
 This is working for me                                         
