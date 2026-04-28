@@ -42,6 +42,8 @@ Design the SQL Server schema for this library system. Write CREATE TABLE stateme
 
 ## Solution
 
+
+```sql
 CREATE DATABASE LibraryDB;
 GO
 USE LibraryDB;
@@ -177,3 +179,4 @@ VALUES (N'Ghost Book', '111-1111111111', 2020, 10.00, 999);
 INSERT INTO dbo.Books (Title, ISBN, PublishedYear, Price, AuthorID)
 VALUES (N'Valid Book', '222-2222222222', 2020, 15.00, 2);
 
+```

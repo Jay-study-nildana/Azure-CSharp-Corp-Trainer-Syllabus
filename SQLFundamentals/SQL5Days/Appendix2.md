@@ -6,85 +6,98 @@ Some more notes and corrections for the curricullum.
 
 This is not working. 
 
- SET @SQL = N'SELECT * FROM ' + QUOTENAME('dbo') + N'.' + QUOTENAME(@TableName) +
-            N' WHERE ' + QUOTENAME(@ColumnName) + N' LIKE @SearchVal';
+```sql
+SET @SQL = N'SELECT * FROM ' + QUOTENAME('dbo') + N'.' + QUOTENAME(@TableName) +
+        N' WHERE ' + QUOTENAME(@ColumnName) + N' LIKE @SearchVal';
+```
 
 We need to remove this, or, put a new example. 
 
+## note 0b
+
  I have this stored procedure.                                                                       
                                                                                                       
-  CREATE PROCEDURE dbo.usp_ProcessBatchOrders                                                         
-  AS                                                                                                  
-  BEGIN                                                                                               
-      SET NOCOUNT ON;                                                                                 
-                                                                                                      
-      DECLARE @OrderID INT;                                                                           
-      DECLARE @ErrorCount INT = 0;                                                                    
-                                                                                                      
-      DECLARE order_cursor CURSOR LOCAL FAST_FORWARD FOR                                              
-          SELECT OrderID FROM dbo.Orders WHERE Status = N'Pending';                                   
-                                                                                                      
-      OPEN order_cursor;                                                                              
-      FETCH NEXT FROM order_cursor INTO @OrderID;                                                     
-                                                                                                      
-      WHILE @@FETCH_STATUS = 0                                                                        
-      BEGIN                                                                                           
-          BEGIN TRY                                                                                   
-              UPDATE dbo.Orders                                                                       
-              SET Status = N'Processing'                                                              
-              WHERE OrderID = @OrderID;                                                               
-                                                                                                      
-              PRINT CONCAT(N'Order', @OrderID,N' processed successfully.');                           
-          END TRY                                                                                     
-          BEGIN CATCH                                                                                 
-              SET @ErrorCount = @ErrorCount + 1;                                                      
-                                                                                                      
-              INSERT INTO dbo.AuditLog (TableName,Operation,RecordID,NewValues)                       
-              VALUES                                                                                  
-              (                                                                                       
-                  N'Orders', N'Errors', @OrderID,                                                     
-                  CONCAT(N'Error Processing:', ERROR_MESSAGE())                                       
-              );                                                                                      
-                                                                                                      
-              PRINT CONCAT (N'Error Processing Order. Order ID : ', @OrderID, N'  ', ERROR_MESSAGE());
-          END CATCH                                                                                   
-                                                                                                      
-          FETCH NEXT FROM order_cursor INTO @OrderID;                                                 
-      END                                                                                             
-                                                                                                      
-      CLOSE order_cursor;                                                                             
-      DEALLOCATE order_cursor;                                                                        
-                                                                                                      
-      PRINT CONCAT(N'Batch Completed. Errors :', @ErrorCount)                                         
-  END;                                                                                                
+
+
+```sql
+CREATE PROCEDURE dbo.usp_ProcessBatchOrders                                                         
+AS                                                                                                  
+BEGIN                                                                                               
+    SET NOCOUNT ON;                                                                                 
+                                                                                                    
+    DECLARE @OrderID INT;                                                                           
+    DECLARE @ErrorCount INT = 0;                                                                    
+                                                                                                    
+    DECLARE order_cursor CURSOR LOCAL FAST_FORWARD FOR                                              
+        SELECT OrderID FROM dbo.Orders WHERE Status = N'Pending';                                   
+                                                                                                    
+    OPEN order_cursor;                                                                              
+    FETCH NEXT FROM order_cursor INTO @OrderID;                                                     
+                                                                                                    
+    WHILE @@FETCH_STATUS = 0                                                                        
+    BEGIN                                                                                           
+        BEGIN TRY                                                                                   
+            UPDATE dbo.Orders                                                                       
+            SET Status = N'Processing'                                                              
+            WHERE OrderID = @OrderID;                                                               
+                                                                                                    
+            PRINT CONCAT(N'Order', @OrderID,N' processed successfully.');                           
+        END TRY                                                                                     
+        BEGIN CATCH                                                                                 
+            SET @ErrorCount = @ErrorCount + 1;                                                      
+                                                                                                    
+            INSERT INTO dbo.AuditLog (TableName,Operation,RecordID,NewValues)                       
+            VALUES                                                                                  
+            (                                                                                       
+                N'Orders', N'Errors', @OrderID,                                                     
+                CONCAT(N'Error Processing:', ERROR_MESSAGE())                                       
+            );                                                                                      
+                                                                                                    
+            PRINT CONCAT (N'Error Processing Order. Order ID : ', @OrderID, N'  ', ERROR_MESSAGE());
+        END CATCH                                                                                   
+                                                                                                    
+        FETCH NEXT FROM order_cursor INTO @OrderID;                                                 
+    END                                                                                             
+                                                                                                    
+    CLOSE order_cursor;                                                                             
+    DEALLOCATE order_cursor;                                                                        
+                                                                                                    
+    PRINT CONCAT(N'Batch Completed. Errors :', @ErrorCount)                                         
+END;  
+```                                                                                              
                                                                                                       
   I need two usage examples.                                                                          
 
 ● Here are two usage examples for your stored procedure dbo.usp_ProcessBatchOrders:
 
-  Example 1: Basic Execution
+Example 1: Basic Execution
 
-   -- Process all pending orders
-   EXEC dbo.usp_ProcessBatchOrders;
+```sql
+-- Process all pending orders
+EXEC dbo.usp_ProcessBatchOrders;
+```
 
-  This will update all orders with Status = 'Pending' to 'Processing', print messages for each, and log any errors to
-  dbo.AuditLog.
+This will update all orders with Status = 'Pending' to 'Processing', print messages for each, and log any errors to
+dbo.AuditLog.
 
-  Example 2: Check Results After Execution
+Example 2: Check Results After Execution
 
-   -- Run the batch process
-   EXEC dbo.usp_ProcessBatchOrders;
-   
-   -- Review updated orders
-   SELECT OrderID, Status FROM dbo.Orders WHERE Status = N'Processing';
-   
-   -- Review any errors logged
-   SELECT * FROM dbo.AuditLog WHERE TableName = N'Orders' AND Operation = N'Errors';
+```sql
+-- Run the batch process
+EXEC dbo.usp_ProcessBatchOrders;
 
-  This lets you verify which orders were processed and see any errors that occurred.
+-- Review updated orders
+SELECT OrderID, Status FROM dbo.Orders WHERE Status = N'Processing';
+
+-- Review any errors logged
+SELECT * FROM dbo.AuditLog WHERE TableName = N'Orders' AND Operation = N'Errors';
+```
+
+This lets you verify which orders were processed and see any errors that occurred.
 
 I need to test this trigger actually works
 
+```sql
 CREATE TRIGGER trg_Products_Audit
 ON
     dbo.Products
@@ -162,66 +175,78 @@ BEGIN
             deleted d;
     END;
 END
+```
 
 To test your trigger trg_Products_Audit, follow these steps:
 
  1. Insert a product
 
- INSERT INTO dbo.Products (ProductName, Price) VALUES (N'Widget', 100.00);
- SELECT * FROM dbo.AuditLog WHERE Operation = N'INSERT';
+```sql 
+INSERT INTO dbo.Products (ProductName, Price) VALUES (N'Widget', 100.00);
+SELECT * FROM dbo.AuditLog WHERE Operation = N'INSERT';
+```
 
- 1. Update the product
+1. Update the product
 
- UPDATE dbo.Products SET Price = 120.00 WHERE ProductName = N'Widget';
- SELECT * FROM dbo.AuditLog WHERE Operation = N'UPDATE';
+```sql 
+UPDATE dbo.Products SET Price = 120.00 WHERE ProductName = N'Widget';
+SELECT * FROM dbo.AuditLog WHERE Operation = N'UPDATE';
+```
 
- 1. Delete the product
+1. Delete the product
 
- DELETE FROM dbo.Products WHERE ProductName = N'Widget';
- SELECT * FROM dbo.AuditLog WHERE Operation = N'DELETE';
+```sql
+DELETE FROM dbo.Products WHERE ProductName = N'Widget';
+SELECT * FROM dbo.AuditLog WHERE Operation = N'DELETE';
+```
 
 Each step will create an entry in dbo.AuditLog, which you can verify with the SELECT statements
 
 ## note 1
 
 This is working for me                                         
+
+```sql                                                                 
+SELECT                                                         
+    ProductName,                                               
+    Price                                                      
+FROM                                                           
+    dbo.Products                                               
+WHERE                                                          
+    Price > (                                                  
+        SELECT                                                 
+            AVG(Price) AS AvgPrice                             
+        FROM                                                   
+            dbo.Products                                       
+    )                                                          
+ORDER BY Price DESC;                                           
+```
                                                                  
-  SELECT                                                         
-      ProductName,                                               
-      Price                                                      
-  FROM                                                           
-      dbo.Products                                               
-  WHERE                                                          
-      Price > (                                                  
-          SELECT                                                 
-              AVG(Price) AS AvgPrice                             
-          FROM                                                   
-              dbo.Products                                       
-      )                                                          
-  ORDER BY Price DESC;                                           
-                                                                 
-  But, what if, I want to display the AvgPrice in the 3rd Column?
+But, what if, I want to display the AvgPrice in the 3rd Column?
 
-● You can display the average price in the third column by using a subquery or CROSS JOIN to bring the average into each row. Here’s a simple way:
+You can display the average price in the third column by using a subquery or CROSS JOIN to bring the average into each row. Here’s a simple way:
 
-   SELECT
-       p.ProductName,
-       p.Price,
-       avgdata.AvgPrice
-   FROM 
-       dbo.Products p
-   CROSS JOIN
-       (SELECT AVG(Price) AS AvgPrice FROM dbo.Products) avgdata
-   WHERE
-       p.Price > avgdata.AvgPrice
-   ORDER BY p.Price DESC;
+```sql
+SELECT
+    p.ProductName,
+    p.Price,
+    avgdata.AvgPrice
+FROM 
+    dbo.Products p
+CROSS JOIN
+    (SELECT AVG(Price) AS AvgPrice FROM dbo.Products) avgdata
+WHERE
+    p.Price > avgdata.AvgPrice
+ORDER BY p.Price DESC;
+```
 
-  This will show ProductName, Price, and the overall AvgPrice in every row of your result.
+This will show ProductName, Price, and the overall AvgPrice in every row of your result.
 
 ## note 2
 
 Here, I cannot insert CEO. So, need to alter the TABLE first.
 
+```sql
 ALTER TABLE 
     dbo.Employees
 ALTER COLUMN ManagerID INT NULL;
@@ -255,156 +280,163 @@ INSERT INTO
       (N'Spock',   N'Grayson', N'Engineer',            7,    '2021-09-15',  90000.00),                                                                                                        
       (N'Christine', N'Chapel', N'Engineer',           7,    '2022-01-10',  85000.00),                                                                                                        
       (N'Janice',  N'Rand',    N'Junior Engineer',     7,    '2023-06-01',  70000.00);                                                                                                        
-                                                                                                                                                                                              
-  and it says                                                                                                                                                                                 
-                                                                                                                                                                                              
-  Started executing query at  Line 394                                                                                                                                                        
-  Msg 547, Level 16, State 0, Line 1                                                                                                                                                          
-  The INSERT statement conflicted with the FOREIGN KEY SAME TABLE constraint "FK_Employees_Manager". The conflict occurred in database "RetailDB", table "dbo.Employees", column 'EmployeeID'.
-  The statement has been terminated.                                                                                                                                                          
-  Total execution time: 00:00:00.026                                                                                                                                                          
+                                                                                                                                                                            
+```                                                                                                                                                                    
+and it says                                                                                                                                                                                 
+                                                                                                                                                                                            
+Started executing query at  Line 394                                                                                                                                                        
+Msg 547, Level 16, State 0, Line 1                                                                                                                                                          
+The INSERT statement conflicted with the FOREIGN KEY SAME TABLE constraint "FK_Employees_Manager". The conflict occurred in database "RetailDB", table "dbo.Employees", column 'EmployeeID'.
+The statement has been terminated.                                                                                                                                                          
+Total execution time: 00:00:00.026                                                                                                                                                          
 
-● This error occurs because you are trying to insert employees who reference managers (by ManagerID) that do not yet exist in the table at the time of insertion. In a single multi-row INSERT, all rows are
-  inserted at once, so the referenced EmployeeID values (e.g., 1, 2, 3, etc.) do not exist yet.
+This error occurs because you are trying to insert employees who reference managers (by ManagerID) that do not yet exist in the table at the time of insertion. In a single multi-row INSERT, all rows are inserted at once, so the referenced EmployeeID values (e.g., 1, 2, 3, etc.) do not exist yet.
 
-  How to fix:
+How to fix:
 
-   1. Insert the CEO first (with ManagerID = NULL).
-   2. Insert the next level (e.g., VPs, referencing CEO’s EmployeeID).
-   3. Continue inserting each level, referencing only EmployeeIDs that already exist.
+1. Insert the CEO first (with ManagerID = NULL).
+2. Insert the next level (e.g., VPs, referencing CEO’s EmployeeID).
+3. Continue inserting each level, referencing only EmployeeIDs that already exist.
 
-  Example:
+Example:
 
-   -- 1. Insert CEO
-   INSERT INTO dbo.Employees(FirstName,LastName,Title,ManagerID,HireDate,Salary)
-   VALUES (N'Sarah',N'Connor',N'CEO',NULL,'2018-01-15',150000.00);
-   
-   -- 2. Insert VPs (ManagerID = 1, which is CEO's EmployeeID)
-   INSERT INTO dbo.Employees(FirstName,LastName,Title,ManagerID,HireDate,Salary)
-   VALUES
-       (N'James', N'Kirk', N'VP of Sales', 1, '2019-03-01', 120000.00),
-       (N'Nyota', N'Uhura', N'VP of Engineering', 1, '2019-06-15', 125000.00);
-   
-   -- 3. Insert next level, referencing correct ManagerIDs, and so on.
+```sql
+-- 1. Insert CEO
+INSERT INTO dbo.Employees(FirstName,LastName,Title,ManagerID,HireDate,Salary)
+VALUES (N'Sarah',N'Connor',N'CEO',NULL,'2018-01-15',150000.00);
 
-  Summary:
-  You cannot insert all employees in one statement if they reference each other by EmployeeID. Insert them in hierarchical order, so each referenced manager already exists.
+-- 2. Insert VPs (ManagerID = 1, which is CEO's EmployeeID)
+INSERT INTO dbo.Employees(FirstName,LastName,Title,ManagerID,HireDate,Salary)
+VALUES
+    (N'James', N'Kirk', N'VP of Sales', 1, '2019-03-01', 120000.00),
+    (N'Nyota', N'Uhura', N'VP of Engineering', 1, '2019-06-15', 125000.00);
+
+-- 3. Insert next level, referencing correct ManagerIDs, and so on.
+
+```
+
+Summary:
+You cannot insert all employees in one statement if they reference each other by EmployeeID. Insert them in hierarchical order, so each referenced manager already exists.
 
 for some reason, the CEO has the ID 52, even though, she was inserted first. what gives?
 
-● The EmployeeID is generated by the IDENTITY(1,1) property, which auto-increments for each new row. If you previously inserted and deleted rows from the Employees table, the identity value does not reset or
-  reuse old numbers by default. It keeps incrementing from the last highest value.
+● The EmployeeID is generated by the IDENTITY(1,1) property, which auto-increments for each new row. If you previously inserted and deleted rows from the Employees table, the identity value does not reset or reuse old numbers by default. It keeps incrementing from the last highest value.
 
-  That’s why your CEO got EmployeeID 52: 
+That’s why your CEO got EmployeeID 52: 
 
-   - There were 51 previous inserts (even if deleted), so the next insert gets
-    52.
+- There were 51 previous inserts (even if deleted), so the next insert gets
+52.
 
-  How to check the current identity value:
+How to check the current identity value:
 
-   SELECT IDENT_CURRENT('dbo.Employees');
+SELECT IDENT_CURRENT('dbo.Employees');
 
-  How to reset the identity seed (if you want to start from 1 again):
+How to reset the identity seed (if you want to start from 1 again):
 
-   DBCC CHECKIDENT ('dbo.Employees', RESEED, 0);
+DBCC CHECKIDENT ('dbo.Employees', RESEED, 0);
 
-  (The next insert will be 1 if the table is empty, or the next highest if not.)
+(The next insert will be 1 if the table is empty, or the next highest if not.)
 
   
 --
 
-Look at this                                                                             
+Look at this     
+
+```sql
                                                                                            
-  ;WITH                                                                                    
-      SupplierCosts AS                                                                     
-      (                                                                                    
-          SELECT                                                                           
-              ProductID,                                                                   
-              MIN(Cost) AS BestCost,                                                       
-              MIN(LeadDays) AS FastestDelivery                                             
-          FROM                                                                             
-              dbo.ProductSuppliers                                                         
-          GROUP BY                                                                         
-              ProductID                                                                    
-      ),                                                                                   
-      OrderStats AS                                                                        
-      (                                                                                    
-          SELECT                                                                           
-              oi.ProductID,                                                                
-              SUM(oi.Quantity) AS TotalQuantitySold,                                       
-              SUM(oi.Quantity) AS TotalRevenue                                             
-          FROM                                                                             
-              dbo.OrderItems oi                                                            
-          JOIN                                                                             
-              dbo.Orders o ON oi.OrderID = o.OrderID                                       
-          WHERE                                                                            
-              o.Status <> N'Cancelled'                                                     
-          GROUP BY                                                                         
-              oi.ProductID                                                                 
-      )                                                                                    
-      SELECT                                                                               
-          p.ProductName,                                                                   
-          cat.CategoryName,                                                                
-          p.Price AS SellingPrice,                                                         
-          sc.BestCost,                                                                     
-          ROUND(p.Price-ISNULL(sc.BestCost,0),2) AS Margin,                                
-          CASE                                                                             
-              WHEN                                                                         
-                  sc.BestCost IS NULL THEN 'N/A'                                           
-              ELSE                                                                         
-                  CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(10)) + '%'
-          END AS MarginPct,                                                                
-          ISNULL(os.TotalQuantitySold,0) AS QtySold,                                       
-          ISNULL(os.TotalRevenue,0) AS Revenue,                                            
-          sc.FastestDelivery AS LeadDays,                                                  
-          CASE                                                                             
-              WHEN os.TotalQuantitySold IS NULL THEN 'Never Ordered'                       
-              WHEN os.TotalQuantitySold > 5 THEN 'High Demand'                             
-              WHEN os.TotalQuantitySold > 2 THEN 'Moderate'                                
-              ELSE 'Low Demand'                                                            
-          END AS DemandLevel                                                               
-      FROM                                                                                 
-          dbo.Products p                                                                   
-      JOIN                                                                                 
-          dbo.Categories cat ON p.CategoryID = cat.CategoryID                              
-      LEFT JOIN                                                                            
-          SupplierCosts sc ON p.ProductID = sc.ProductID                                   
-      LEFT JOIN                                                                            
-          OrderStats os ON p.ProductID = os.ProductID                                      
-      WHERE                                                                                
-          p.IsActive = 1                                                                   
-      ORDER BY                                                                             
-          Revenue DESC;                                                                    
+;WITH                                                                                    
+    SupplierCosts AS                                                                     
+    (                                                                                    
+        SELECT                                                                           
+            ProductID,                                                                   
+            MIN(Cost) AS BestCost,                                                       
+            MIN(LeadDays) AS FastestDelivery                                             
+        FROM                                                                             
+            dbo.ProductSuppliers                                                         
+        GROUP BY                                                                         
+            ProductID                                                                    
+    ),                                                                                   
+    OrderStats AS                                                                        
+    (                                                                                    
+        SELECT                                                                           
+            oi.ProductID,                                                                
+            SUM(oi.Quantity) AS TotalQuantitySold,                                       
+            SUM(oi.Quantity) AS TotalRevenue                                             
+        FROM                                                                             
+            dbo.OrderItems oi                                                            
+        JOIN                                                                             
+            dbo.Orders o ON oi.OrderID = o.OrderID                                       
+        WHERE                                                                            
+            o.Status <> N'Cancelled'                                                     
+        GROUP BY                                                                         
+            oi.ProductID                                                                 
+    )                                                                                    
+    SELECT                                                                               
+        p.ProductName,                                                                   
+        cat.CategoryName,                                                                
+        p.Price AS SellingPrice,                                                         
+        sc.BestCost,                                                                     
+        ROUND(p.Price-ISNULL(sc.BestCost,0),2) AS Margin,                                
+        CASE                                                                             
+            WHEN                                                                         
+                sc.BestCost IS NULL THEN 'N/A'                                           
+            ELSE                                                                         
+                CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(10)) + '%'
+        END AS MarginPct,                                                                
+        ISNULL(os.TotalQuantitySold,0) AS QtySold,                                       
+        ISNULL(os.TotalRevenue,0) AS Revenue,                                            
+        sc.FastestDelivery AS LeadDays,                                                  
+        CASE                                                                             
+            WHEN os.TotalQuantitySold IS NULL THEN 'Never Ordered'                       
+            WHEN os.TotalQuantitySold > 5 THEN 'High Demand'                             
+            WHEN os.TotalQuantitySold > 2 THEN 'Moderate'                                
+            ELSE 'Low Demand'                                                            
+        END AS DemandLevel                                                               
+    FROM                                                                                 
+        dbo.Products p                                                                   
+    JOIN                                                                                 
+        dbo.Categories cat ON p.CategoryID = cat.CategoryID                              
+    LEFT JOIN                                                                            
+        SupplierCosts sc ON p.ProductID = sc.ProductID                                   
+    LEFT JOIN                                                                            
+        OrderStats os ON p.ProductID = os.ProductID                                      
+    WHERE                                                                                
+        p.IsActive = 1                                                                   
+    ORDER BY                                                                             
+        Revenue DESC;              
+```                                                      
                                                                                            
-  I keep seeing a overflow error                                                           
-                                                                                           
-  Started executing query at  Line 1233                                                    
-  Msg 8115, Level 16, State 5, Line 1                                                      
-  Arithmetic overflow error converting numeric to data type varchar.                       
-  Total execution time: 00:00:00.021                                                       
+I keep seeing a overflow error                                                           
+                                                                                        
+Started executing query at  Line 1233                                                    
+Msg 8115, Level 16, State 5, Line 1                                                      
+Arithmetic overflow error converting numeric to data type varchar.                       
+Total execution time: 00:00:00.021                                                       
 
 ● The error is caused by this line in your SELECT:
 
-   CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(10)) + '%'
+CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(10)) + '%'
 
-  If p.Price is 0, you get a division by zero, which can cause an overflow or error when converting to VARCHAR. Also, if the result is a very large or very small number, it may not fit in VARCHAR(10).
+If p.Price is 0, you get a division by zero, which can cause an overflow or error when converting to VARCHAR. Also, if the result is a very large or very small number, it may not fit in VARCHAR(10).
 
-  How to fix:
+How to fix:
 
-   1. Prevent division by zero: WHEN sc.BestCost IS NULL OR p.Price = 0 THEN 'N/A'
-    ELSE CAST(ROUND((p.Price - sc.BestCost)/p.Price
-    * 100,1) AS VARCHAR(20)) + '%'
-   2. Increase VARCHAR size:
-  Use VARCHAR(20) or larger to avoid overflow on large numbers.
+1. Prevent division by zero: WHEN sc.BestCost IS NULL OR p.Price = 0 THEN 'N/A'
+ELSE CAST(ROUND((p.Price - sc.BestCost)/p.Price
+* 100,1) AS VARCHAR(20)) + '%'
+2. Increase VARCHAR size:
+Use VARCHAR(20) or larger to avoid overflow on large numbers.
 
-  Corrected CASE:
+Corrected CASE:
 
-   CASE
-       WHEN sc.BestCost IS NULL OR p.Price = 0 THEN 'N/A'
-       ELSE CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(20)) + '%'
-   END AS MarginPct
+```sql
+CASE
+    WHEN sc.BestCost IS NULL OR p.Price = 0 THEN 'N/A'
+    ELSE CAST(ROUND((p.Price - sc.BestCost)/p.Price * 100,1) AS VARCHAR(20)) + '%'
+END AS MarginPct
+```
 
-  This will prevent the overflow error and handle division by zero safely.
+This will prevent the overflow error and handle division by zero safely.
 
 ## note 3
 

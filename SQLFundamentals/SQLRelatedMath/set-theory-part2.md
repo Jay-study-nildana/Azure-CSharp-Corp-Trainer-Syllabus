@@ -19,31 +19,34 @@
 
 ## 1. Set Operations: Union, Intersection, Difference, Complement
 
-### Union (A ∪ B)
-All elements in A or B (no duplicates).
-- Math: {1,2,3} ∪ {3,4,5} = {1,2,3,4,5}
-- SQL: UNION removes duplicates
+### Union (\( A \cup B \))
+Contains all elements that are in A, in B, or in both (no duplicates).  
+**Math example:**  
+\( \{1,2,3\} \cup \{3,4,5\} = \{1,2,3,4,5\} \)
 
-### Intersection (A ∩ B)
-Elements in both A and B.
-- Math: {1,2,3} ∩ {3,4,5} = {3}
-- SQL: INTERSECT
+### Intersection (\( A \cap B \))
+Contains only elements that are in both A and B.  
+**Math example:**  
+\( \{1,2,3\} \cap \{3,4,5\} = \{3\} \)
 
-### Difference (A − B)
-Elements in A not in B.
-- Math: {1,2,3} − {3,4,5} = {1,2}
-- SQL: EXCEPT
+### Difference (\( A - B \))
+Contains elements in A that are not in B.  
+**Math example:**  
+\( \{1,2,3\} - \{3,4,5\} = \{1,2\} \)
 
-### Complement (A')
-Elements not in A (relative to universal set U).
-- SQL: Use NOT IN or LEFT JOIN/IS NULL
+### Complement (\( A' \) or \( \overline{A} \))
+Contains all elements in the universal set \( U \) that are not in A.  
+**Math example:**  
+If \( U = \{1,2,3,4,5\} \) and \( A = \{2,3\} \), then \( A' = \{1,4,5\} \)
 
 ---
 
 ## 2. SQL Set Operations: UNION, INTERSECT, EXCEPT
 
+These operators directly map to the set operations above and require compatible column structures.
+
 ### UNION
-Combines results, removes duplicates.
+Combines results and removes duplicates (true set union).  
 ```sql
 SELECT name FROM TableA
 UNION
@@ -51,220 +54,136 @@ SELECT name FROM TableB;
 ```
 
 ### UNION ALL
-Combines results, keeps duplicates.
+Combines results but **keeps duplicates** (multiset union – often faster).  
 
 ### INTERSECT
-Returns only rows present in both queries.
+Returns only rows present in both result sets.  
 
-### EXCEPT
-Returns rows in first query not in second.
+### EXCEPT (or MINUS in some databases)
+Returns rows in the first query that are not in the second.
 
 ---
 
 ## 3. Cartesian Product and SQL CROSS JOIN
 
-The Cartesian product of A and B is all possible pairs (a, b).
-- Math: A × B
-- SQL: CROSS JOIN
+The **Cartesian product** (\( A \times B \)) is the set of all possible ordered pairs (a, b) where a ∈ A and b ∈ B.  
+
+**Math example:**  
+\( A = \{1,2\} \), \( B = \{x,y\} \) →  
+\( A \times B = \{(1,x), (1,y), (2,x), (2,y)\} \)
+
+**SQL equivalent:**
+```sql
+SELECT * FROM TableA
+CROSS JOIN TableB;
+```
+(CROSS JOIN without a WHERE clause produces every possible combination of rows.)
 
 ---
 
 ## 4. Advanced Set Concepts: Disjoint Sets, Partitions, Relations
 
-- **Disjoint Sets:** No elements in common (SQL: queries with mutually exclusive WHERE clauses)
-- **Partitions:** Divide a set into non-overlapping subsets (SQL: GROUP BY)
-- **Relations:** Any subset of a Cartesian product (SQL: any table with two or more columns)
+- **Disjoint Sets:** Two sets with no elements in common (\( A \cap B = \emptyset \)).  
+  **SQL:** Queries with mutually exclusive `WHERE` clauses or `LEFT JOIN ... IS NULL`.
+
+- **Partition:** A division of a set into non-overlapping, non-empty subsets that together cover the entire set.  
+  **SQL:** Achieved with `GROUP BY` or window functions.
+
+- **Relation:** Any subset of a Cartesian product. In databases, a table with two or more columns represents a relation between those columns.  
+  **SQL:** Every table is a relation; foreign keys define relationships between tables.
 
 ---
 
 ## 5. Set Identities and SQL Query Equivalents
 
-- A ∪ ∅ = A (UNION with empty set returns A)
-- A ∩ ∅ = ∅ (INTERSECT with empty set returns empty)
-- A ∪ A = A (UNION removes duplicates)
-- A ∩ A = A
-- (A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C)
+Useful identities that hold in both mathematics and SQL:
+
+- \( A \cup \emptyset = A \) → `UNION` with an empty set returns the original set
+- \( A \cap \emptyset = \emptyset \) → `INTERSECT` with an empty set returns empty
+- \( A \cup A = A \) → `UNION` automatically removes duplicates
+- \( A \cap A = A \)
+- Distributive law: \( (A \cup B) \cap C = (A \cap C) \cup (B \cap C) \)
+
+These can be verified directly with SQL queries for learning purposes.
 
 ---
 
 ## 6. Nulls, Duplicates, and SQL Set Semantics
 
-- SQL treats NULLs as unknown, not as a value
-- Duplicates are removed by default in UNION, INTERSECT, EXCEPT
-- Use UNION ALL to keep duplicates
+- SQL result sets are technically **multisets** (bags), not pure sets. Duplicates are allowed unless `DISTINCT` or set operators are used.
+- `UNION`, `INTERSECT`, and `EXCEPT` remove duplicates by default (set semantics).
+- `UNION ALL` preserves duplicates (multiset semantics).
+- `NULL` values are treated specially: `NULL` is not equal to anything (including another `NULL`). This affects all set operations and requires careful handling with `IS NULL` / `IS NOT NULL`.
 
 ---
 
 ## 7. Set Theory in Database Design
 
-- Primary keys: ensure uniqueness (set property)
-- Foreign keys: define relationships (subsets)
-- Normalization: decomposing tables into sets
+- **Primary keys** enforce uniqueness → mirrors the “no duplicate elements” rule of sets.
+- **Foreign keys** define relationships between tables → subsets of Cartesian products.
+- **Normalization** decomposes large tables into smaller, related sets to reduce redundancy.
+- Understanding sets helps design better schemas and write more efficient queries.
 
 ---
 
 ## 8. Practice Problems and SQL Challenges
 
-1. Write SQL to find students in either Math or English but not both.
-2. Write SQL to find all possible pairs of products and customers.
-3. Prove set identities using SQL queries.
-4. Use GROUP BY to partition a table.
+1. Write a SQL query to find students enrolled in either Math **or** English but **not both** (symmetric difference).  
+2. Write a query that returns all possible pairs of products and customers (Cartesian product).  
+3. Using the sets A = {1, 2, 3, 4} and B = {3, 4, 5, 6}, write SQL queries for \( A \cup B \), \( A \cap B \), and \( A - B \).  
+4. Use `GROUP BY` to show a partition of a sales table by region.  
+5. Prove (with SQL) that \( (A \cup B) \cap C = (A \cap C) \cup (B \cap C) \).  
 
 ---
 
 ## 9. Visuals: Venn Diagrams for SQL Operations
 
-(ASCII diagrams and explanations for UNION, INTERSECT, EXCEPT, CROSS JOIN)
-
----
-
-## 10. Further Reading and Resources
-
-- Books, articles, and online courses on set theory and SQL
-
----
-
-# [End of Primer]
-
-## Set Operations
-
-Set theory defines several operations that can be performed on sets. These operations are directly related to SQL operations.
-
-### 1. Union (A ∪ B)
-The union of sets A and B is a set containing all elements from both A and B (no duplicates).
-
-**Example:**
-- A = {1, 2, 3}
-- B = {3, 4, 5}
-- A ∪ B = {1, 2, 3, 4, 5}
-
-**SQL Equivalent:**
-```sql
-SELECT column FROM TableA
-UNION
-SELECT column FROM TableB;
+### Union (\( A \cup B \))
 ```
-
----
-
-### 2. Intersection (A ∩ B)
-The intersection of sets A and B is a set containing only the elements common to both.
-
-**Example:**
-- A = {1, 2, 3}
-- B = {3, 4, 5}
-- A ∩ B = {3}
-
-**SQL Equivalent:**
-```sql
-SELECT column FROM TableA
-INTERSECT
-SELECT column FROM TableB;
-```
-
----
-
-### 3. Difference (A − B)
-The difference of sets A and B is a set containing elements in A but not in B.
-
-**Example:**
-- A = {1, 2, 3}
-- B = {3, 4, 5}
-- A − B = {1, 2}
-
-**SQL Equivalent:**
-```sql
-SELECT column FROM TableA
-EXCEPT
-SELECT column FROM TableB;
-```
-
----
-
-### 4. Complement
-The complement of set A (denoted A') is the set of all elements in the universal set U that are not in A.
-
-**Example:**
-- U = {1, 2, 3, 4, 5}
-- A = {2, 3}
-- A' = {1, 4, 5}
-
----
-
-### 5. Cartesian Product (A × B)
-The Cartesian product of sets A and B is the set of all ordered pairs (a, b) where a ∈ A and b ∈ B.
-
-**Example:**
-- A = {1, 2}
-- B = {x, y}
-- A × B = {(1, x), (1, y), (2, x), (2, y)}
-
-**SQL Equivalent:**
-```sql
-SELECT * FROM TableA
-CROSS JOIN TableB;
-```
-
----
-
-## Advanced Concepts
-
-### Disjoint Sets
-Two sets are **disjoint** if they have no elements in common.
-
-### Partition of a Set
-A partition divides a set into non-overlapping subsets that cover all elements.
-
-### Application in SQL
-- Understanding set operations helps in writing efficient queries.
-- SQL's UNION, INTERSECT, and EXCEPT are based on set theory.
-
----
-
-## Visuals: Venn Diagrams for Operations
-
-```
-Union:
    _______     _______
   /       \   /       \
  /    A    \ /    B    \
 |           |           |
  \         / \         /
   \_______/   \_______/
+```
 
-Intersection:
+### Intersection (\( A \cap B \))
+```
    _______     _______
   /       \   /       \
  /    A    \ /    B    \
 |     ___   |           |
  \   /   \ /         /
   \_/_____\_______/
+```
 
-Difference:
+### Difference (\( A - B \))
+```
    _______
   /       \
  /    A    \
 |           |
  \         /
   \_______/
-   (excluding overlap with B)
+   (B overlap removed)
 ```
 
----
-
-## Practice Questions
-
-1. If A = {1, 2, 3, 4} and B = {3, 4, 5, 6}, find:
-   - A ∪ B
-   - A ∩ B
-   - A − B
-2. Draw a Venn diagram for the sets above.
-3. Give a real-world example of a Cartesian product.
+### Complement (\( A' \))
+The area **outside** circle A but inside the universal rectangle.
 
 ---
 
-## Conclusion
+## 10. Further Reading and Resources
 
-Set theory is foundational for understanding SQL and relational databases. Mastering these concepts will make you a better database designer and query writer.
+- “SQL and Relational Theory” by C.J. Date  
+- “Introduction to Set Theory” by Hrbacek and Jech (mathematics-focused)  
+- PostgreSQL / SQL Server / MySQL documentation on set operators  
+- Khan Academy or Brilliant.org – Set Theory courses  
+- Database System Concepts (Silberschatz, Korth, Sudarshan) – Chapter on Relational Model
+
+---
 
 *End of Primer.*
+
+This completes the two-part series on Set Theory and SQL. You now have a solid foundation for writing more logical, efficient, and correct SQL queries.

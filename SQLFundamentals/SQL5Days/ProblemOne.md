@@ -36,6 +36,7 @@ Design the SQL Server schema for this school system. Write CREATE TABLE statemen
 
 ## Solution
 
+```sql
 -- ============================================
 -- Step 1: Create the database
 -- ============================================
@@ -127,3 +128,5 @@ CREATE TABLE Academic.Enrollments (
     CONSTRAINT UQ_Enrollments UNIQUE (StudentID, CourseID)  -- prevent double enrollment
 );
 GO
+
+```
