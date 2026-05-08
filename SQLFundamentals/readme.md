@@ -4,6 +4,10 @@ This section has some things related to SQL.
 
 Note: Use one of the dedicated platform specific folders, or begin your learning with the 'SQL5Days' Curriculum. 
 
+## Recommended Textbook
+
+As of now, May 8th 2026, I only recommend one textbook. Database-System-Concepts-7th-Edition: Abraham.
+
 ## Docker Images
 
 Ready to use, Docker Images available here, https://github.com/Jay-study-nildana/DockerForStudents/
