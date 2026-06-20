@@ -1482,49 +1482,79 @@ One-off intermediate calculation? → Derived table or CTE (preference)
 ```sql
 -- For each product, show:
 -- Name, Category, Selling Price, Best Supplier Cost, Margin, Times Ordered, Revenue
-;WITH SupplierCosts AS (
+;WITH 
+SupplierCosts AS
+(
     SELECT
         ProductID,
         MIN(Cost) AS BestCost,
         MIN(LeadDays) AS FastestDelivery
-    FROM dbo.ProductSuppliers
-    GROUP BY ProductID
+    FROM
+        dbo.ProductSuppliers
+    GROUP BY
+        ProductID
 ),
-OrderStats AS (
+OrderStats AS
+(
     SELECT
         oi.ProductID,
-        SUM(oi.Quantity)              AS TotalQuantitySold,
+        SUM(oi.Quantity) AS TotalQuantitySold,
         SUM(oi.Quantity * oi.UnitPrice) AS TotalRevenue
-    FROM dbo.OrderItems oi
-    JOIN dbo.Orders o ON oi.OrderID = o.OrderID
-    WHERE o.Status <> N'Cancelled'
-    GROUP BY oi.ProductID
+    FROM
+        dbo.OrderItems oi
+    JOIN
+        dbo.Orders o ON oi.OrderID = o.OrderID
+    WHERE
+        o.Status <> N'Cancelled'
+    GROUP BY
+        oi.ProductID
 )
 SELECT
     p.ProductName,
     cat.CategoryName,
-    p.Price                                      AS SellingPrice,
+    p.Price AS SellingPrice,
     sc.BestCost,
-    ROUND(p.Price - ISNULL(sc.BestCost, 0), 2)  AS Margin,
+    ROUND
+        (
+            p.Price - ISNULL(sc.BestCost,0),2
+        ) AS Margin,
     CASE
-        WHEN sc.BestCost IS NULL THEN 'N/A'
-        ELSE CAST(ROUND((p.Price - sc.BestCost) / p.Price * 100, 1) AS VARCHAR(10)) + '%'
-    END                                          AS MarginPct,
-    ISNULL(os.TotalQuantitySold, 0)              AS QtySold,
-    ISNULL(os.TotalRevenue, 0)                   AS Revenue,
-    sc.FastestDelivery                           AS LeadDays,
+        WHEN
+            sc.BestCost IS NULL THEN 'N/A'
+        ELSE
+            CAST(
+                    ROUND
+                        (
+                            (p.Price - sc.BestCost)/p.Price *100,
+                            1
+                        ) AS VARCHAR(100)
+                ) + '%'
+    END AS MarginPct,
+    ISNULL(os.TotalQuantitySold,0) AS QtySold,
+    ISNULL(os.TotalRevenue,0) AS Revenue,
+    sc.FastestDelivery AS LeadDays,
     CASE
-        WHEN os.TotalQuantitySold IS NULL         THEN 'Never Ordered'
-        WHEN os.TotalQuantitySold > 5             THEN 'High Demand'
-        WHEN os.TotalQuantitySold > 2             THEN 'Moderate'
-        ELSE                                           'Low Demand'
-    END                                          AS DemandLevel
-FROM dbo.Products p
-JOIN dbo.Categories cat    ON p.CategoryID = cat.CategoryID
-LEFT JOIN SupplierCosts sc ON p.ProductID  = sc.ProductID
-LEFT JOIN OrderStats os    ON p.ProductID  = os.ProductID
-WHERE p.IsActive = 1
-ORDER BY Revenue DESC;
+        WHEN
+            os.TotalQuantitySold IS NULL THEN N'Never Ordered'
+        WHEN
+            os.TotalQuantitySold > 5 THEN N'High Demand'
+        WHEN
+            os.TotalQuantitySold > 2 THEN N'Moderate'
+        ELSE
+            N'Low Demand'
+    END AS DemandLevel
+FROM
+    dbo.Products p
+JOIN 
+    dbo.Categories cat ON p.CategoryID = cat.CategoryID
+LEFT JOIN
+    SupplierCosts sc ON p.ProductID = sc.ProductID
+LEFT JOIN 
+    OrderStats os ON p.ProductID = os.ProductID
+WHERE
+    p.IsActive = 1
+ORDER BY 
+    Revenue DESC;
 ```
 
 ### 16.2 Scenario: Customer Segmentation
@@ -2059,6 +2089,29 @@ SELECT ProductName, Price
 FROM dbo.Products
 WHERE Price > (SELECT AVG(Price) FROM dbo.Products)
 ORDER BY Price DESC;
+
+-- 1b. Same as 1, but, also display the average price for reference
+
+WITH AvgPrice AS
+(
+    SELECT
+        AVG(Price) AS AveragePrice
+    FROM
+        dbo.Products
+)
+SELECT
+    p.ProductName,
+    p.Price,
+    a.AveragePrice,
+    p.Price - a.AveragePrice AS PriceDifference
+FROM    
+    dbo.Products p
+CROSS JOIN
+    AvgPrice a 
+WHERE
+    p.Price > a.AveragePrice
+ORDER BY
+    p.Price DESC;
 
 -- 2. Above own category's average (correlated)
 SELECT p.ProductName, p.Price, p.CategoryID

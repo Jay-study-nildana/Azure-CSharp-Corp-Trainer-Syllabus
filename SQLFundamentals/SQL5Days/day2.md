@@ -1262,15 +1262,54 @@ SELECT * FROM dbo.ExpensiveProducts;
 Execute a stored procedure and insert results into a table:
 
 ```sql
--- Insert results of a stored procedure into a table
-CREATE TABLE dbo.TempResults (
-    DatabaseName NVARCHAR(128)
+-- =============================================
+-- 1. Create a simple stored procedure (demo)
+-- =============================================
+CREATE OR ALTER PROCEDURE dbo.usp_GetProductInfo
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        ProductID = 101,
+        ProductName = 'Wireless Mouse',
+        Category = 'Electronics',
+        UnitPrice = 29.99,
+        UnitsInStock = 142
+
+    UNION ALL
+
+    SELECT 102, 'USB-C Cable', 'Accessories', 14.99, 320
+
+    UNION ALL
+
+    SELECT 103, 'Monitor Stand', 'Office', 39.99, 67;
+END
+GO
+
+-- =============================================
+-- 2. Create the target table
+--    (columns must match the procedure's output exactly)
+-- =============================================
+CREATE TABLE dbo.TempProductResults (
+    ProductID     INT,
+    ProductName   NVARCHAR(100),
+    Category      NVARCHAR(50),
+    UnitPrice     DECIMAL(10,2),
+    UnitsInStock  INT
 );
+GO
 
-INSERT INTO dbo.TempResults
-EXEC sp_databases;
+-- =============================================
+-- 3. INSERT INTO … EXEC  ← This is the key line
+-- =============================================
+INSERT INTO dbo.TempProductResults
+EXEC dbo.usp_GetProductInfo;
 
-SELECT * FROM dbo.TempResults;
+-- =============================================
+-- 4. View the results
+-- =============================================
+SELECT * FROM dbo.TempProductResults;
 ```
 
 ---
@@ -1568,6 +1607,15 @@ SELECT
     OrderDate,
     DATEADD(DAY, 7, OrderDate) AS EstimatedDelivery
 FROM dbo.Orders;
+
+-- 4b. Same as before, but, without the long decimal digits in the date display.
+
+SELECT
+    OrderID,
+    CAST(OrderDate AS DATE) AS OrderDate,
+    CAST(DATEADD(DAY, 7, OrderDate) AS DATE) AS EstimatedDelivery
+FROM
+    dbo.Orders;
 
 -- 5. Orders by day of week
 SELECT

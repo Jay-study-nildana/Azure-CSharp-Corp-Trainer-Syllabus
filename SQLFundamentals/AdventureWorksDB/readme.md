@@ -2,12 +2,21 @@
 
 This section has some things related to Transact-SQL.
 
-Note: I used the Adventure Works 2019 OLTP database for all the queries.
+## Adding the Adventure Works DB
+
+1. First, download the verion you want from the link below. Note: I used the Adventure Works 2019 OLTP database for all the queries.
+1. Querying, you can do with anything (for example, I use VS Code with SQL Extension) but restoring, I did with SQL Management Studio
+1. After you have downloaded the .bak file, put it somewhere easy to find, like, C: Drive
+1. Then, Right click on your SQL Server, "Restore Database"
+1. Select Source as "Device"
+1. Select the 'three dots'
+1. Select Backup devices. Simply add the .back file into the 'list' using the Add button from the C drive. 
+1. That's it. 
+1. I have included so many SQL files with ready to run scripts. Just go through them in any order that pleases you.
 
 # References
 
 1. [Get Started Querying with Transact-SQL](https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/)
-1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
 1. [AdventureWorks sample databases](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
 
 ## book a session with me

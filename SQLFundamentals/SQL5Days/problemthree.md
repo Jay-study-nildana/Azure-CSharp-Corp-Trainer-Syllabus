@@ -50,6 +50,7 @@ Design the SQL Server schema for this retail system. Write CREATE TABLE statemen
 
 ## Solution
 
+```sql
 -- ============================================
 -- Create the RetailDB database
 -- ============================================
@@ -239,3 +240,5 @@ VALUES
     (14, 3, 1,  49.99),
     (14, 4, 1,  89.99);
 GO
+
+```

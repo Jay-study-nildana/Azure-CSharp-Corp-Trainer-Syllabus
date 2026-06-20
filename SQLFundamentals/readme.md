@@ -4,12 +4,9 @@ This section has some things related to SQL.
 
 Note: Use one of the dedicated platform specific folders, or begin your learning with the 'SQL5Days' Curriculum. 
 
-## Adventure Works database
+## Recommended Textbook
 
-Use Adventure Works database, [available here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure)
-
-1. [Importing .bac files (like AdventureWorks sample databases) into Azure SQL Cloud Database](https://medium.com/projectwt/importing-bac-files-like-adventureworks-sample-databases-into-azure-sql-cloud-database-cfec1c3b2d64)
-1. use the 'OLTP' version of the database.
+As of now, May 8th 2026, I only recommend one textbook. Database-System-Concepts-7th-Edition: Abraham.
 
 ## Docker Images
 

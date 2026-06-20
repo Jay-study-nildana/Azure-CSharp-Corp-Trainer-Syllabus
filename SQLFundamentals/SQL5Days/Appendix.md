@@ -2,7 +2,7 @@
 
 Some additional notes for students reference
 
-## Essential Short Cuts
+## Essential Short Cuts (VS Code with MS SQL Extension)
 
 1. Ctrl + Shift + E : executes entire file or selected code block in Visual Studio Code. 
 1. Ctrl + / : comment selected code.
